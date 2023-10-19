@@ -53,6 +53,21 @@
                 </div>
             </div><!-- /.container-fluid -->
         </section>
+
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4 class="m-0">Questions</h4>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+                <div class="row py-3">
+                    <div class="col-sm-6">
+                        <a href="{{route('admin.question.create', $test->id)}}" class="btn btn-success px-5">Add question</a>
+                    </div><!-- /.col -->
+                </div>
+            </div><!-- /.container-fluid -->
+        </div>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->

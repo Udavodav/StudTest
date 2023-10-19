@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('category_id');
+            $table->unsignedBigInteger('type_id');
             $table->string('text', 500);
             $table->float('score')->default(0.0);
             $table->string('path_image')->nullable();

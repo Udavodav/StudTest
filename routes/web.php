@@ -23,7 +23,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::namespace('App\Http\Controllers\Admin')->prefix('/admin')->name('admin.')->group(function (){
-    Route::namespace('Test')->name('test.')->group(function (){
+    Route::namespace('Test')->prefix('/test')->name('test.')->group(function (){
 
         Route::get('/index_all', IndexAllController::class)->name('index_all');
         Route::get('/index_my', IndexMyController::class)->name('index_my');
@@ -33,7 +33,21 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('/admin')->name('admin.')
         Route::get('/{test}', ShowController::class)->name('show');
         Route::patch('/{test}', UpdateController::class)->name('update');
         Route::delete('/{test}', DeleteController::class)->name('delete');
-
     });
+
+    Route::namespace('Question')->prefix('/question')->name('question.')->group(function () {
+
+        Route::get('/{test}/create', CreateController::class)->name('create');
+        Route::post('/', \App\Http\Controllers\Admin\Question\StoreController::class)->name('store');
+//        Route::get('/create', CreateController::class)->name('create');
+//        Route::post('/', StoreController::class)->name('store');
+//        Route::get('/{test}/edit', EditController::class)->name('edit');
+//        Route::get('/{test}', ShowController::class)->name('show');
+//        Route::patch('/{test}', UpdateController::class)->name('update');
+//        Route::delete('/{test}', DeleteController::class)->name('delete');
+
+        });
 });
+
+
 
