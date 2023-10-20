@@ -28,7 +28,7 @@
                             <form class="bg-white" action="{{route('admin.question.store')}}" method="POST"
                                   enctype="multipart/form-data">
                                 @csrf
-                                <div class="card-body">
+                                <div class="card-body" id="body_question">
                                     <div class="form-group">
                                         <label>Text question</label>
                                         <textarea class="form-control" rows="3" maxlength="500" name="text"
@@ -66,11 +66,17 @@
                                     <div class="form-group" name="five" id="five" style="display:none">
                                         <label>Порядок</label>
                                     </div>
-                                    <script src="{{asset('dist/js/question/change_answer_option.js')}}"></script>
                                 </div>
+                                    <script src="{{asset('dist/js/question/change_answer_option.js')}}"></script>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary px-5">Add</button>
+                                </div>
+                                <div>
+
+                                    @foreach($errors->all() as $error)
+                                        <label>{{$error}}</label>
+                                    @endforeach
                                 </div>
                             </form>
                         </div>

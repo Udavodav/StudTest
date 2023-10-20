@@ -3,44 +3,44 @@
     <div class="justify-content-between">
         <label>Answers</label>
         <button class="btn btn-warning mx-md-5" type="button"
-                onclick="onClickAddOnce()">Add option
+                onclick="onClickAddMany()">Add option
         </button>
         <button class="btn btn-danger mx-md-2" type="button"
-                onclick="onClickDeleteLastOptionOnce()">Delete last option
+                onclick="onClickDeleteLastOptionMany()">Delete last option
         </button>
     </div>
-    <table class="table table-bordered" id="tableOnce">
+    <table class="table table-bordered">
         <thead>
         <tr>
             <th>Text option</th>
             <th>Options</th>
         </tr>
         </thead>
-        <tbody id='tableBodyOnce'>
+        <tbody id='tableBodyMany'>
         <div class="form-group">
-            <tr id="tr1">
-                <td><textarea class="form-control" name="textOp[]" rows="2"
+            <tr id="tr0">
+                <td><textarea class="form-control" name="answersMany[0][text]" rows="2"
                               maxlength="500"
                               placeholder="Text option"></textarea>
                 </td>
                 <td>
                     <div class="custom-control custom-checkbox">
                         <input class="custom-control-input" type="checkbox"
-                               id="checkbox1" value="1" name="is_right[]">
-                        <label for="checkbox1"
+                               id="checkbox0" value="0" name="is_rightMany[]">
+                        <label for="checkbox0"
                                class="custom-control-label">Is true?</label>
                     </div>
                 </td>
             </tr>
-            <tr id="tr2">
-                <td><textarea class="form-control" name="textOp[]" rows="2"
+            <tr id="tr1">
+                <td><textarea class="form-control" name="answersMany[0][text]" rows="2"
                               maxlength="500"
                               placeholder="Text option"></textarea></td>
                 <td>
                     <div class="custom-control custom-checkbox">
                         <input class="custom-control-input" type="checkbox"
-                               id="checkbox2" value="2" name="is_right[]">
-                        <label for="checkbox2"
+                               id="checkbox1" value="1" name="is_rightMany[]">
+                        <label for="checkbox1"
                                class="custom-control-label">Is true?</label>
                     </div>
                 </td>
