@@ -17,23 +17,20 @@ class StoreRequest extends FormRequest
     public function prepareForValidation()
     {
         $input = $this->all();
-        dd($input);
-        $suffix = '';
 
-        if($input['type_id'] == '1')
-            $suffix = 'Once';
-        elseif ($input['type_id'] == '2')
-            $suffix = 'Many';
-
-        if(isset($input['is_rightMany']) || $input['type_id'] == '1'){
-            foreach ($input['is_right'.$suffix] as $item){
-                foreach ($input['answers'.$suffix] as $key => $answer) {
-                    $input['answers'][$key]['is_right'] = (int)$item === $key ? 1 : 0;
-                }
-            }
+        switch ($input['question']['type_id']){
+            case '1':
+                foreach ($input['answers'] as $key => $value)
+                    $input['answers'][$key]['is_right'] = $input['is_right'] == $key ? 1 : 0;
+                break;
+            case '2':
+                foreach ($input['answers'] as $key => $value)
+                    if(!isset($input['answers'][$key]['is_right']))
+                        $input['answers'][$key]['is_right'] = 0;
+                break;
         }
 
-
+        unset($input['is_right']);
         $this->replace($input);
     }
 
@@ -45,23 +42,17 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'text' => 'required|string',
-            'type_id' => 'required',
-            'path_image' => 'nullable|image',
-            'answer' => 'nullable|string',
-            'score' => 'nullable|numeric',
-//            'textOnce.*' => 'required_if:type_id,1|string',
-//            //'path_imageOnce.*' => 'nullable|string',
-//            'is_rightOnce.*' => 'required_if:type_id,1|string',
+            'question.text' => 'required|string',
+            'question.type_id' => 'required',
+            'question.path_image' => 'nullable|image',
+            //'question.answer' => 'nullable|string',
+            'question.score' => 'nullable|numeric',
 
-            'answers' => 'required|array',
-            'answers.*.text' => 'required|string',
-            'answers.*.is_right' => 'required|integer',
-            'is_right.*' => 'required|array',
+            'answers' => 'required_if:question.type_id,1,2,4,5|array',
+            'answers.*.text' => 'required_if:question.type_id,1,2|string',
+            'answers.*.is_right' => 'required_if:question.type_id,1,2|integer',
+            'is_right' => 'required_if:question.type_id,3|string',
 
-//            'textMany.*' => 'required_if:type_id,2|string',
-//            //'path_imageMany.*' => 'nullable|string',
-//            'is_rightMany.*' => 'required|present|string',
         ];
     }
 }

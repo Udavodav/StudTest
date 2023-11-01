@@ -6,34 +6,14 @@ function onClickAddOnce(e){
     const tbodyEl = document.getElementById('tableBodyOnce');
     countOnce += 1;
 
-    // tbodyEl.innerHTML += `
-    //     <tr id="tr${countOnce}">
-    //         <td><textarea class="form-control" name="textOnce[]" rows="2" maxlength="500"
-    //                       placeholder="Text option"></textarea>
-    //         </td>
-    //         <td>
-    //             <div class="custom-control custom-radio">
-    //                 <input class="custom-control-input" type="radio"
-    //                         id="radio${countOnce}" value="${countOnce}" name="is_rightOnce[]">
-    //                 <label for="radio${countOnce}" class="custom-control-label">Correct?</label>
-    //             </div>
-    //         </td>
-    //     </tr>
-    // `;
-    tbodyEl.innerHTML += `
-        <tr id="tr${countOnce}">
-            <td><textarea class="form-control" name="answersOnce[${countOnce}][text]" rows="2" maxlength="500"
-                          placeholder="Text option"></textarea>
-            </td>
-            <td>
-                <div class="custom-control custom-radio">
-                    <input class="custom-control-input" type="radio"
-                            id="radio${countOnce}" value="${countOnce}" name="is_rightOnce[]">
-                    <label for="radio${countOnce}" class="custom-control-label">Correct?</label>
-                </div>
-            </td>
-        </tr>
-    `;
+    const item = document.getElementById('templ_answer').content.cloneNode(true);
+    item.querySelector('tr').id = `tr${countOnce}`;
+    item.querySelector('textarea').name= `answers[${countOnce}][text]`;
+    item.querySelector('input').id= `radio${countOnce}`;
+    item.querySelector('input').value= `${countOnce}`;
+    item.querySelector('label').htmlFor = `radio${countOnce}`;
+
+    tbodyEl.append(item);
 }
 
 function onClickDeleteLastOptionOnce(e){
@@ -48,35 +28,14 @@ function onClickAddMany(e){
     const tbodyEl = document.getElementById('tableBodyMany');
     countMany += 1;
 
-    // tbodyEl.innerHTML += `
-    //     <tr id="tr${countMany}">
-    //         <td><textarea class="form-control" name="textOnce[]" rows="2" maxlength="500"
-    //                       placeholder="Text option"></textarea>
-    //         </td>
-    //         <td>
-    //             <div class="custom-control custom-radio">
-    //                 <input class="custom-control-input" type="radio"
-    //                         id="radio${countMany}" value="${countMany}" name="is_rightOnce[]">
-    //                 <label for="radio${countMany}" class="custom-control-label">Correct?</label>
-    //             </div>
-    //         </td>
-    //     </tr>
-    // `;
-    tbodyEl.innerHTML += `
-        <tr id="tr${countMany}">
-            <td><textarea class="form-control" name="answersMany[${countMany}][text]" rows="2" maxlength="500"
-                          placeholder="Text option"></textarea>
-            </td>
-            <td>
-                <div class="custom-control custom-checkbox">
-                    <input class="custom-control-input" type="checkbox"
-                            id="checkbox${countMany}" value="${countMany}" name="is_rightMany[]">
-                    <label for="checkbox${countMany}" class="custom-control-label">Is true?</label>
-                </div>
-            </td>
-        </tr>
-    `;
+    const item = document.getElementById('templ_answer').content.cloneNode(true);
+    item.querySelector('tr').id = `tr${countMany}`;
+    item.querySelector('textarea').name= `answers[${countMany}][text]`;
+    item.querySelector('input').id= `checkbox${countMany}`;
+    item.querySelector('input').name= `answers[${countMany}][is_right]`;
+    item.querySelector('label').htmlFor = `checkbox${countMany}`;
 
+    tbodyEl.append(item);
 }
 
 function onClickDeleteLastOptionMany(e){

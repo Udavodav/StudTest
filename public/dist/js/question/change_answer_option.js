@@ -23,17 +23,8 @@ document.getElementById("type_id")
             4: "thor",
             5: "five",
         }, c = this.value;
-    //document.getElementById('item_box').remove();
-    //document.getElementById('body_question').innerHTML += `@include('admin.question.answer.once_answer')`;
-    switch (c) {
-        case 1:
-            document.getElementById('body_question').innerHTML = `@include('admin.question.answer.once_answer')`;
-            break;
-        case 2:
-            document.getElementById('body_question').innerHTML = `@include('admin.question.answer.many_answer')`;
-            break;
-        default:
-            alert( "Нет таких значений(" + c  + ")");
-    }
+
+    document.getElementById(b[current]).remove();
+    document.getElementById('body_question').append(document.getElementById('templ_' + b[c]).content.cloneNode(true));
     current = c;
 };

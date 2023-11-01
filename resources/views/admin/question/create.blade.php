@@ -31,30 +31,96 @@
                                 <div class="card-body" id="body_question">
                                     <div class="form-group">
                                         <label>Text question</label>
-                                        <textarea class="form-control" rows="3" maxlength="500" name="text"
+                                        <textarea class="form-control" rows="3" maxlength="500" name="question[text]"
                                                   placeholder="Text"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Image</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" name="path_image" class="custom-file-input">
+                                                <input type="file" name="question[path_image]" class="custom-file-input">
                                                 <label class="custom-file-label">Choose image</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="points">Number of point</label>
-                                        <input type="number" name="score" class="form-control" id="points"
+                                        <input type="number" name="question[score]" class="form-control" id="points"
                                                placeholder="Number of point">
                                     </div>
                                     <div class="form-group">
                                         <label>Type question</label>
-                                        <select name="type_id" id="type_id" class="form-control">
+                                        <select name="question[type_id]" id="type_id" class="form-control">
                                             @foreach($types as $type)
                                                 <option value="{{$type->id}}">{{$type->title}}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+
+                                    <div class="form-group" id="one">
+                                        <div class="justify-content-between">
+                                            <label>Answers</label>
+                                            <button class="btn btn-warning mx-md-5" type="button"
+                                                    onclick="onClickAddOnce()">Add option
+                                            </button>
+                                            <button class="btn btn-danger mx-md-2" type="button"
+                                                    onclick="onClickDeleteLastOptionOnce()">Delete last option
+                                            </button>
+                                        </div>
+                                        <table class="table table-bordered" id="tableOnce">
+                                            <thead>
+                                            <tr>
+                                                <th>Text option</th>
+                                                <th>Options</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id='tableBodyOnce'>
+                                            <div class="form-group">
+                                                <tr id="tr0">
+                                                    <td><textarea class="form-control" name="answers[0][text]" rows="2"
+                                                                  maxlength="500"
+                                                                  placeholder="Text option"></textarea>
+                                                    </td>
+                                                    <td>
+                                                        <div class="custom-control custom-radio">
+                                                            <input class="custom-control-input" type="radio"
+                                                                   id="radio0" value="0" name="is_right" checked>
+                                                            <label for="radio0"
+                                                                   class="custom-control-label">Correct?</label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr id="tr1">
+                                                    <td><textarea class="form-control" name="answers[1][text]" rows="2"
+                                                                  maxlength="500"
+                                                                  placeholder="Text option"></textarea></td>
+                                                    <td>
+                                                        <div class="custom-control custom-radio">
+                                                            <input class="custom-control-input" type="radio"
+                                                                   id="radio1" value="1" name="is_right">
+                                                            <label for="radio1"
+                                                                   class="custom-control-label">Correct?</label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </div>
+                                            </tbody>
+                                        </table>
+
+                                        <template id="templ_answer">
+                                            <tr >
+                                                <td><textarea class="form-control" name="name" rows="2" maxlength="500"
+                                                              placeholder="Text option"></textarea>
+                                                </td>
+                                                <td>
+                                                    <div class="custom-control custom-radio">
+                                                        <input class="custom-control-input" type="radio"
+                                                               id="radio" value="1" name="is_right">
+                                                        <label for="radio" class="custom-control-label">Correct?</label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </template>
                                     </div>
 
                                     @include('admin.question.answer.once_answer')
