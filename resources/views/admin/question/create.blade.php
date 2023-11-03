@@ -125,8 +125,8 @@
 
                                     @include('admin.question.answer.once_answer')
                                     @include('admin.question.answer.many_answer')
-                                    <div class="form-group" id="three" style="display:none"><label>Без
-                                            выбора</label></div>
+                                    @include('admin.question.answer.empty_answer')
+
                                     <div class="form-group" name="thor" id="thor" style="display:none"><label>Соответствие</label>
                                     </div>
                                     <div class="form-group" name="five" id="five" style="display:none">

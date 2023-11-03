@@ -45,13 +45,13 @@ class StoreRequest extends FormRequest
             'question.text' => 'required|string',
             'question.type_id' => 'required',
             'question.path_image' => 'nullable|image',
-            //'question.answer' => 'nullable|string',
             'question.score' => 'nullable|numeric',
 
             'answers' => 'required_if:question.type_id,1,2,4,5|array',
             'answers.*.text' => 'required_if:question.type_id,1,2|string',
             'answers.*.is_right' => 'required_if:question.type_id,1,2|integer',
-            'is_right' => 'required_if:question.type_id,3|string',
+            'empty_answer.answer' => 'required_if:question.type_id,3|string',
+            //'answer' => 'required_if:question.type_id,3|string',
 
         ];
     }
