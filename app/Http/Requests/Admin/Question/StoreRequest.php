@@ -17,7 +17,6 @@ class StoreRequest extends FormRequest
     public function prepareForValidation()
     {
         $input = $this->all();
-
         switch ($input['question']['type_id']){
             case '1':
                 foreach ($input['answers'] as $key => $value)
@@ -27,6 +26,11 @@ class StoreRequest extends FormRequest
                 foreach ($input['answers'] as $key => $value)
                     if(!isset($input['answers'][$key]['is_right']))
                         $input['answers'][$key]['is_right'] = 0;
+                break;
+            case '4':
+                foreach ($input['answers'] as $key => $value)
+                    if(!isset($input['answers'][$key]['option1']))
+                        $input['answers'][$key]['option1'] = "$key";
                 break;
         }
 
@@ -46,12 +50,14 @@ class StoreRequest extends FormRequest
             'question.type_id' => 'required',
             'question.path_image' => 'nullable|image',
             'question.score' => 'nullable|numeric',
+            'question.test_id' => 'nullable|integer',
 
             'answers' => 'required_if:question.type_id,1,2,4,5|array',
             'answers.*.text' => 'required_if:question.type_id,1,2|string',
             'answers.*.is_right' => 'required_if:question.type_id,1,2|integer',
             'empty_answer.answer' => 'required_if:question.type_id,3|string',
-            //'answer' => 'required_if:question.type_id,3|string',
+            'answers.*.option1' => 'required_if:question.type_id,4,5|string',
+            'answers.*.option2' => 'required_if:question.type_id,4,5|string',
 
         ];
     }

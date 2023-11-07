@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Question\StoreRequest;
 use App\Models\Answer;
 use App\Models\AnswerEmpty;
 use App\Models\AnswerOption;
+use App\Models\AnswerOrder;
 use App\Models\Question;
 use App\Models\Test;
 use App\Models\Type;
@@ -33,12 +34,21 @@ class StoreController extends Controller
                         AnswerOption::create($value);
                     }
                 break;
+
                 case '3':
                     $data['empty_answer']['question_id'] = $question['id'];
                     AnswerEmpty::create($data['empty_answer']);
                 break;
+
+                case '4':case '5':
+                foreach ($data['answers'] as $value){
+                    $value['question_id'] = $question['id'];
+                    AnswerOrder::create($value);
+                }
+                break;
             }
         });
-        return 'Store controller question!';
+
+        return redirect()->route('admin.test.show', $data['question']['test_id']);
     }
 }

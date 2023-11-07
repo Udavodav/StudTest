@@ -29,6 +29,7 @@
                                   enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body" id="body_question">
+                                    <input type="hidden" name="question[test_id]" value="{{$test->id}}">
                                     <div class="form-group">
                                         <label>Text question</label>
                                         <textarea class="form-control" rows="3" maxlength="500" name="question[text]"
@@ -126,12 +127,8 @@
                                     @include('admin.question.answer.once_answer')
                                     @include('admin.question.answer.many_answer')
                                     @include('admin.question.answer.empty_answer')
-
-                                    <div class="form-group" name="thor" id="thor" style="display:none"><label>Соответствие</label>
-                                    </div>
-                                    <div class="form-group" name="five" id="five" style="display:none">
-                                        <label>Порядок</label>
-                                    </div>
+                                    @include('admin.question.answer.order_answer')
+                                    @include('admin.question.answer.comparison_answer')
                                 </div>
                                     <script src="{{asset('dist/js/question/change_answer_option.js')}}"></script>
                                 <!-- /.card-body -->
