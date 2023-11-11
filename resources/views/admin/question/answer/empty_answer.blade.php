@@ -6,7 +6,7 @@
         <div class="form-group">
             <label>Right answer</label>
             <textarea class="form-control" rows="2" maxlength="100" name="empty_answer[answer]"
-                      placeholder="Right answer"></textarea>
+                      placeholder="Right answer">{{isset($question) && $question->type_id == 3 ? $question->answers->answer : ''}}</textarea>
         </div>
     </div>
 </template>

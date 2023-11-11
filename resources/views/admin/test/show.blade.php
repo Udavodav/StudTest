@@ -81,10 +81,10 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Text</th>
+                                        <th class="w-50">Text</th>
                                         <th>Type</th>
                                         <th>Balls</th>
-                                        <th>Options</th>
+                                        <th colspan="2" class="text-center">Options</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -95,9 +95,15 @@
                                             <td>{{$question->type->title}}</td>
                                             <td>{{$question->score}}</td>
                                             <td>
-                                                <div>
-
-                                                </div>
+                                                    <a href="{{route('admin.question.edit', $question->id)}}" class="text-success mx-2"><i class="fas fa-edit"></i></a>
+                                            </td>
+                                            <td>
+                                                <form method="POST" action="{{route('admin.question.delete', $question->id)}}">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="text-danger ml-5 border-0 bg-transparent" onclick="return confirm('Are you sure?')">
+                                                        <i class="fas fa-trash-alt"></i></button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach

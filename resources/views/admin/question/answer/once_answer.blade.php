@@ -18,33 +18,45 @@
             </thead>
             <tbody id='tableBodyOnce'>
             <div class="form-group">
-                <tr id="tr0">
-                    <td><textarea class="form-control" name="answers[0][text]" rows="2"
-                                  maxlength="500"
-                                  placeholder="Text option"></textarea>
-                    </td>
-                    <td>
-                        <div class="custom-control custom-radio">
-                            <input class="custom-control-input" type="radio"
-                                   id="radio0" value="1" name="is_right" checked>
-                            <label for="radio0"
-                                   class="custom-control-label">Correct?</label>
-                        </div>
-                    </td>
-                </tr>
-                <tr id="tr1">
-                    <td><textarea class="form-control" name="answers[1][text]" rows="2"
-                                  maxlength="500"
-                                  placeholder="Text option"></textarea></td>
-                    <td>
-                        <div class="custom-control custom-radio">
-                            <input class="custom-control-input" type="radio"
-                                   id="radio1" value="1" name="is_right">
-                            <label for="radio1"
-                                   class="custom-control-label">Correct?</label>
-                        </div>
-                    </td>
-                </tr>
+
+                @if(isset($question) && $question->type_id == 1)
+                    @foreach($question->answers as $answer)
+                        <tr id="tr{{$loop->index}}">
+                            <td><textarea class="form-control" name="answers[{{$loop->index}}][text]" rows="2"
+                                          maxlength="500"
+                                          placeholder="Text option">{{$answer->text}}</textarea>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-radio">
+                                    <input class="custom-control-input" type="radio"
+                                           id="radio{{$loop->index}}" value="1" name="is_right"
+                                        {{$answer->is_right == 1 ? 'checked' : ''}}>
+                                    <label for="radio{{$loop->index}}"
+                                           class="custom-control-label">Correct?</label>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    @for($i = 0; $i < 2; $i++)
+                        <tr id="tr{{$i}}">
+                            <td><textarea class="form-control" name="answers[{{$i}}][text]" rows="2"
+                                          maxlength="500"
+                                          placeholder="Text option"></textarea>
+                            </td>
+                            <td>
+                                <div class="custom-control custom-radio">
+                                    <input class="custom-control-input" type="radio"
+                                           id="radio{{$i}}" value="1" name="is_right"
+                                        {{$i == 0 ? 'checked' : ''}}>
+                                    <label for="radio{{$i}}"
+                                           class="custom-control-label">Correct?</label>
+                                </div>
+                            </td>
+                        </tr>
+                    @endfor
+                @endif
+
             </div>
             </tbody>
         </table>

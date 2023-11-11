@@ -13,4 +13,26 @@ class Question extends Model
     public function type(){
         return $this->belongsTo(Type::class);
     }
+
+    public function answers(){
+        $answers = [];
+        switch ($this->type_id){
+            case 1:case 2:
+                $answers = $this->hasMany(AnswerOption::class);
+                break;
+            case 3:
+                $answers = $this->hasOne(AnswerEmpty::class);
+                break;
+            case 4:case 5:
+                $answers = $this->hasMany(AnswerOrder::class);
+                break;
+        }
+        return $answers;
+    }
+
+    public function test(){
+        return $this->belongsTo(Test::class);
+    }
 }
+
+

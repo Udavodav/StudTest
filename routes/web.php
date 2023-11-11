@@ -1,6 +1,7 @@
 <?php
 
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//импортировал классы
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -38,14 +40,10 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('/admin')->name('admin.')
     Route::namespace('Question')->prefix('/question')->name('question.')->group(function () {
 
         Route::get('/{test}/create', CreateController::class)->name('create');
-        Route::post('/', \App\Http\Controllers\Admin\Question\StoreController::class)->name('store');
-//        Route::get('/create', CreateController::class)->name('create');
-//        Route::post('/', StoreController::class)->name('store');
-//        Route::get('/{test}/edit', EditController::class)->name('edit');
-//        Route::get('/{test}', ShowController::class)->name('show');
-//        Route::patch('/{test}', UpdateController::class)->name('update');
-//        Route::delete('/{test}', DeleteController::class)->name('delete');
-
+        Route::post('/', StoreController::class)->name('store');
+        Route::get('/{question}/edit', EditController::class)->name('edit');
+        Route::patch('/{question}', UpdateController::class)->name('update');
+        Route::delete('/{question}', DeleteController::class)->name('delete');
         });
 });
 
