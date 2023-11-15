@@ -47,5 +47,18 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('/admin')->name('admin.')
         });
 });
 
+Route::namespace('App\Http\Controllers\Client')->prefix('/client')->name('client.')->group(function (){
+    Route::namespace('Test')->prefix('/test')->name('test.')->group(function (){
+
+        Route::get('/', IndexController::class)->name('index');
+//        Route::get('/create', CreateController::class)->name('create');
+//        Route::post('/', StoreController::class)->name('store');
+//        Route::get('/{test}/edit', EditController::class)->name('edit');
+//        Route::get('/{test}', ShowController::class)->name('show');
+//        Route::patch('/{test}', UpdateController::class)->name('update');
+//        Route::delete('/{test}', DeleteController::class)->name('delete');
+    });
+});
+
 
 
