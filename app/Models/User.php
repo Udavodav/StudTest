@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_admin',
+        'last_visit',
     ];
 
     /**
@@ -42,4 +44,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function accessTests(){
+        return $this->belongsToMany(Test::class, 'access_tests');
+    }
+
+    public function inviteTests(){
+        return $this->belongsToMany(Test::class, 'invite_tests');
+    }
 }

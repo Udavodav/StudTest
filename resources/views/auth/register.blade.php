@@ -40,6 +40,34 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="role" class="col-md-4 col-form-label text-md-end">Role</label>
+
+                            <div class="col-md-6" id="role">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="is_admin" id="radioClient" value="0" checked>
+                                    <label class="form-check-label" for="radioClient">Client</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="is_admin" id="radioAdmin" value="1">
+                                    <label class="form-check-label" for="radioAdmin">Admin</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3" id="group_div">
+                            <label for="group_id" class="col-md-4 col-form-label text-md-end">Group</label>
+
+                            <div class="col-md-6">
+                                <select name="group_id" id="group_id" class="form-control">
+                                    @foreach($groups as $group)
+                                        <option value="{{$group->id}}">{{$group->title}}</option>
+                                    @endforeach
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -73,5 +101,6 @@
             </div>
         </div>
     </div>
+    <script src="{{asset('dist/js/auth/auth.js')}}"></script>
 </div>
 @endsection

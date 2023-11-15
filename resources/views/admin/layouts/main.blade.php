@@ -30,7 +30,6 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 
 <div class="wrapper">
-    @include('admin.preloader')
     @include('admin.navbar')
     @include('admin.sidebar')
 
