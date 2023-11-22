@@ -22,9 +22,8 @@ Route::get('/', function () {
 //импортировал классы
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::namespace('App\Http\Controllers\Admin')->prefix('/admin')->name('admin.')->group(function (){
+Route::namespace('App\Http\Controllers\Admin')->prefix('/admin')->name('admin.')->middleware(['auth','admin'])->group(function (){
     Route::namespace('Test')->prefix('/test')->name('test.')->group(function (){
 
         Route::get('/index_all', IndexAllController::class)->name('index_all');
@@ -47,7 +46,7 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('/admin')->name('admin.')
         });
 });
 
-Route::namespace('App\Http\Controllers\Client')->prefix('/client')->name('client.')->group(function (){
+Route::namespace('App\Http\Controllers\Client')->prefix('/client')->name('client.')->middleware(['auth', 'client'])->group(function (){
     Route::namespace('Test')->prefix('/test')->name('test.')->group(function (){
 
         Route::get('/', IndexController::class)->name('index');
