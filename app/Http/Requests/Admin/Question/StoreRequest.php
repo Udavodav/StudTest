@@ -49,8 +49,8 @@ class StoreRequest extends FormRequest
             'question.text' => 'required|string',
             'question.type_id' => 'required',
             'question.path_image' => 'nullable|image',
-            'question.score' => 'nullable|numeric',
-            'question.test_id' => 'nullable|integer',
+            'question.score' => 'required|numeric',
+            'question.test_id' => 'required|integer',
 
             'answers' => 'required_if:question.type_id,1,2,4,5|array',
             'answers.*.text' => 'required_if:question.type_id,1,2|string',

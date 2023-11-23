@@ -19,12 +19,14 @@
             <tbody id='tableBodyOnce'>
             <div class="form-group">
 
-                @if(isset($question) && $question->type_id == 1)
+                @if(isset($question) && $question->type_id == 1 && count($question->answers) == count(old('answers')))
                     @foreach($question->answers as $answer)
                         <tr id="tr{{$loop->index}}">
                             <td><textarea class="form-control" name="answers[{{$loop->index}}][text]" rows="2"
                                           maxlength="500"
-                                          placeholder="Text option">{{$answer->text}}</textarea>
+                                          placeholder="Text option">
+                                    {{old('answers.'.$loop->index.'.text') != '' ? old('answers.'.$loop->index.'.text') : $answer->text}}
+                                </textarea>
                             </td>
                             <td>
                                 <div class="custom-control custom-radio">
@@ -38,17 +40,17 @@
                         </tr>
                     @endforeach
                 @else
-                    @for($i = 0; $i < 2; $i++)
+                    @for($i = 0; $i < count(old('answers', [0, 0])); $i++)
                         <tr id="tr{{$i}}">
                             <td><textarea class="form-control" name="answers[{{$i}}][text]" rows="2"
                                           maxlength="500"
-                                          placeholder="Text option"></textarea>
+                                          placeholder="Text option">{{old('answers.'.$i.'.text')}}</textarea>
                             </td>
                             <td>
                                 <div class="custom-control custom-radio">
                                     <input class="custom-control-input" type="radio"
                                            id="radio{{$i}}" value="1" name="is_right"
-                                        {{$i == 0 ? 'checked' : ''}}>
+                                        {{old('is_right') == $i ? 'checked' : ''}}>
                                     <label for="radio{{$i}}"
                                            class="custom-control-label">Correct?</label>
                                 </div>
@@ -60,6 +62,10 @@
             </div>
             </tbody>
         </table>
+
+        @error('answers.*.text')
+        <div class="text-danger">{{ $message }}</div>
+        @enderror
         <template id="templ_answer">
             <tr >
                 <td><textarea class="form-control" name="name" rows="2" maxlength="500"

@@ -1,5 +1,7 @@
 
-let countOnce = 1, countMany = 1, countOrder = 1, countComparison = 1;
+let countOnce,countMany,countOrder,countComparison;
+
+
 
 function onClickAddOnce(e){
     if(countOnce > 4) return;

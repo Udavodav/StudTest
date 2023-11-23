@@ -31,23 +31,33 @@
                                 <div class="card-body" id="body_question">
                                     <input type="hidden" name="question[test_id]" value="{{$test->id}}">
                                     <div class="form-group">
-                                        <label>Text question</label>
-                                        <textarea class="form-control" rows="3" maxlength="500" name="question[text]"
-                                                  placeholder="Text"></textarea>
+                                        <label for="text">Text question</label>
+                                        <textarea id="text" class="form-control" rows="3" maxlength="500" name="question[text]"
+                                                  placeholder="Text">{{old('question.text')}}</textarea>
+
+                                        @error('question.text')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label>Image</label>
-                                        <div class="input-group">
+                                        <label for="path_image">Image</label>
+                                        <div class="input-group" id="path_image">
                                             <div class="custom-file">
                                                 <input type="file" name="question[path_image]" class="custom-file-input">
                                                 <label class="custom-file-label">Choose image</label>
                                             </div>
                                         </div>
+                                        @error('question.path_image')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="points">Number of point</label>
                                         <input type="number" name="question[score]" class="form-control" id="points"
-                                               placeholder="Number of point">
+                                               placeholder="Number of point" value="{{old('question.score')}}">
+                                        @error('question.score')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label>Type question</label>
@@ -56,6 +66,9 @@
                                                 <option value="{{$type->id}}">{{$type->title}}</option>
                                             @endforeach
                                         </select>
+                                        @error('question.type_id')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     @include('admin.question.answer.once_answer')

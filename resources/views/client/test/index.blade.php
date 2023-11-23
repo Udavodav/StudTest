@@ -40,7 +40,7 @@
                                     <div class="icon">
                                         <i class="ion ion-bag"></i>
                                     </div>
-                                    <a href="#clickToCard#" class="stretched-link"></a>
+                                    <a href="{{route('client.question.index', $test)}}" class="stretched-link"></a>
                                 </div>
                             </div>
                         @endforeach

@@ -21,4 +21,18 @@ document.getElementById("type_id").onchange = onChange;
 
 window.onload = function () {
     onChange();
+    switch (current) {
+        case 1:
+            countOnce = document.getElementById('tableOnce').rows.lenght;
+            break;
+        case 2:
+            countMany = 1
+            break;
+        case 4:
+            countOrder = 1;
+            break;
+        case 5:
+            countComparison = 1;
+            break;
+    }
 }
