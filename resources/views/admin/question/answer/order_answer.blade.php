@@ -27,7 +27,7 @@
                         </li>
                     @endforeach
                 @else
-                    @for($i = 0; $i < 3; $i++)
+                    @for($i = 0; $i < count(old('answers', [0,0,0])); $i++)
                         <li>
                     <span class="handle ui-sortable-handle">
                       <i class="fas fa-ellipsis-v"></i>
@@ -39,7 +39,7 @@
                             </div>
                             <div class="mt-3">
                     <textarea class="form-control" rows="2" maxlength="250" name="answers[][option2]"
-                              placeholder="Text"></textarea>
+                              placeholder="Text">{{old('answers.'.$i.'.option2','')}}</textarea>
                             </div>
                         </li>
                     @endfor
@@ -51,6 +51,11 @@
         <script>
             $('.sortable-ul').sortable();
         </script>
+
+        @error('answers.*')
+        <div class="text-danger">{{ $message }}</div>
+        @enderror
+
         <template id="templ_order_item">
             <li>
                     <span class="handle ui-sortable-handle">

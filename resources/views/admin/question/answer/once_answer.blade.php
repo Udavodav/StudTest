@@ -31,7 +31,7 @@
                             <td>
                                 <div class="custom-control custom-radio">
                                     <input class="custom-control-input" type="radio"
-                                           id="radio{{$loop->index}}" value="1" name="is_right"
+                                           id="radio{{$loop->index}}" value="{{$loop->index}}" name="is_right"
                                         {{$answer->is_right == 1 ? 'checked' : ''}}>
                                     <label for="radio{{$loop->index}}"
                                            class="custom-control-label">Correct?</label>
@@ -40,17 +40,17 @@
                         </tr>
                     @endforeach
                 @else
-                    @for($i = 0; $i < count(old('answers', [0, 0])); $i++)
+                    @for($i = 0; $i < count(old('answers', [0,0])); $i++)
                         <tr id="tr{{$i}}">
                             <td><textarea class="form-control" name="answers[{{$i}}][text]" rows="2"
                                           maxlength="500"
-                                          placeholder="Text option">{{old('answers.'.$i.'.text')}}</textarea>
+                                          placeholder="Text option">{{old('answers.'.$i.'.text','')}}</textarea>
                             </td>
                             <td>
                                 <div class="custom-control custom-radio">
                                     <input class="custom-control-input" type="radio"
-                                           id="radio{{$i}}" value="1" name="is_right"
-                                        {{old('is_right') == $i ? 'checked' : ''}}>
+                                           id="radio{{$i}}" value="{{$i}}" name="is_right"
+                                        {{old('is_right',0) == $i ? 'checked' : ''}}>
                                     <label for="radio{{$i}}"
                                            class="custom-control-label">Correct?</label>
                                 </div>
@@ -63,9 +63,10 @@
             </tbody>
         </table>
 
-        @error('answers.*.text')
+        @error('answers.*')
         <div class="text-danger">{{ $message }}</div>
         @enderror
+
         <template id="templ_answer">
             <tr >
                 <td><textarea class="form-control" name="name" rows="2" maxlength="500"

@@ -63,7 +63,9 @@
                                         <label>Type question</label>
                                         <select name="question[type_id]" id="type_id" class="form-control">
                                             @foreach($types as $type)
-                                                <option value="{{$type->id}}">{{$type->title}}</option>
+                                                <option value="{{$type->id}}"
+                                                {{old('question.type_id',0) == $type->id ? 'selected' : ''}}
+                                                >{{$type->title}}</option>
                                             @endforeach
                                         </select>
                                         @error('question.type_id')
@@ -77,7 +79,6 @@
                                     @include('admin.question.answer.order_answer')
                                     @include('admin.question.answer.comparison_answer')
                                 </div>
-                                    <script src="{{asset('dist/js/question/change_answer_option.js')}}"></script>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary px-5">Add</button>

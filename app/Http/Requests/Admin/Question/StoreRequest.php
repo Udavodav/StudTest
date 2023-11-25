@@ -23,9 +23,15 @@ class StoreRequest extends FormRequest
                     $input['answers'][$key]['is_right'] = $input['is_right'] == $key ? 1 : 0;
                 break;
             case '2':
-                foreach ($input['answers'] as $key => $value)
-                    if(!isset($input['answers'][$key]['is_right']))
+                $isExists = false;
+                foreach ($input['answers'] as $key => $value) {
+                    if (isset($input['answers'][$key]['is_right']))
+                        $isExists = true;
+                    else
                         $input['answers'][$key]['is_right'] = 0;
+                }
+                if (!$isExists)
+                    unset($input['answers'][0]['is_right']);
                 break;
             case '4':
                 foreach ($input['answers'] as $key => $value)

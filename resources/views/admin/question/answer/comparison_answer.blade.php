@@ -6,7 +6,7 @@
                     onclick="onClickAddComparison()">Add option
             </button>
         </div>
-        <table class="table table-bordered" id="table">
+        <table class="table table-bordered" id="tableComparison">
             <thead>
             <tr>
                 <th>Column of options static</th>
@@ -17,7 +17,7 @@
             <tbody id='tableBody'>
             <div class="form-group">
 
-                @if(isset($question) && $question->type_id == 5)
+                @if(isset($question) && $question->type_id == 5 && count($question->answers) == count(old('answers')))
                     @foreach($question->answers as $answer)
                         <tr>
                             <td><textarea class="form-control" name="answers[{{$loop->index}}][option1]" rows="2"
@@ -32,13 +32,13 @@
                         </tr>
                     @endforeach
                 @else
-                    @for($i = 0; $i < 2; $i++)
+                    @for($i = 0; $i < count(old('answers', [0,0])); $i++)
                         <tr>
                             <td><textarea class="form-control" name="answers[{{$i}}][option1]" rows="2"
-                                          maxlength="500" placeholder="Text option"></textarea>
+                                          maxlength="500" placeholder="Text option">{{old('answers.'.$i.'.option1','')}}</textarea>
                             </td>
                             <td><textarea class="form-control" name="answers[{{$i}}][option2]" rows="2"
-                                          maxlength="500" placeholder="Text option"></textarea>
+                                          maxlength="500" placeholder="Text option">{{old('answers.'.$i.'.option2','')}}</textarea>
                             </td>
                             <td>
                                 <button type="button" class="btn btn-danger" onclick="onClickDeleteComparisonItem(this)">Delete</button>
@@ -51,6 +51,11 @@
             </div>
             </tbody>
         </table>
+
+        @error('answers.*')
+        <div class="text-danger">{{ $message }}</div>
+        @enderror
+
         <template id="templ_comparison_item">
             <tr>
                 <td><textarea class="form-control" id="option1" name="answers[][option1]" rows="2"
