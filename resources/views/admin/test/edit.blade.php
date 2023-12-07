@@ -32,12 +32,22 @@
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Title</label>
                                         <input type="text" name="title" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Title" value="{{$test->title}}">
+                                               placeholder="Title" value="{{old('title','') == '' ? old('title') : $test->title}}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="points">Number of point</label>
+                                        <input type="number" name="question[score]" class="form-control" id="points"
+                                               placeholder="Number of point"
+                                               value="{{old('count_questions','') == '' ? old('count_questions') : $test->count_questions}}"
+                                               max="1000">
+                                        @error('count_questions')
+                                        <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
                                         <textarea class="form-control" rows="3" maxlength="250" name="description"
-                                                  placeholder="Description">{{$test->description}}</textarea>
+                                                  placeholder="Description">{{old('description','') == '' ? old('description') : $test->description}}</textarea>
                                     </div>
 
                                 </div>

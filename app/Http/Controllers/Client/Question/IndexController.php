@@ -16,7 +16,7 @@ class IndexController extends Controller
         if(!session('question_ids'))
         {
             $questions = Question::where('test_id', $test->id)
-                ->orderBy(DB::raw('RAND()'))->get()->pluck('id');
+                ->orderBy(DB::raw('RAND()'))->limit($test->count_questions)->get()->pluck('id');
             session()->put('question_ids', $questions);
         }
 

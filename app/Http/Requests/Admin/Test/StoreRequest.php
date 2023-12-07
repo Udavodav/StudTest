@@ -23,7 +23,8 @@ class StoreRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'description' => 'nullable|string'
+            'description' => 'nullable|string',
+            'count_questions' => 'required|digits_between:1,1000',
         ];
     }
 }

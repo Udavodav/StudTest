@@ -54,7 +54,7 @@
                                     <div class="form-group">
                                         <label for="points">Number of point</label>
                                         <input type="number" name="question[score]" class="form-control" id="points"
-                                               placeholder="Number of point" value="{{old('question.score')}}">
+                                               placeholder="Number of point" value="{{old('question.score')}}" max="1000">
                                         @error('question.score')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror

@@ -50,6 +50,7 @@ Route::namespace('App\Http\Controllers\Client')->prefix('/client')->name('client
     Route::namespace('Test')->prefix('/test')->name('test.')->group(function (){
 
         Route::get('/', IndexController::class)->name('index');
+        Route::get('/{test}', ShowController::class)->name('show');
     });
     Route::namespace('Question')->prefix('/question')->name('question.')->group(function (){
 
