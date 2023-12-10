@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-6">
                         <!-- small box -->
-                        <div class="small-box" style="background: #{{dechex(rand(3000000,10000000))}}">
+                        <div class="small-box" style="background: #{{dechex(rand(10000000,16777215))}}">
                             <div class="inner">
                                 <h3>{{$test->title}}</h3>
                                 <p>
@@ -52,7 +52,7 @@
                                 <i class="ion ion-bag"></i>
                             </div>
                         </div>
-                        <a href="{{route('client.question.index', $test)}}" class="btn btn-primary px-5">Пройти тест</a>
+                        <a href="{{route('client.question.index', $test)}}" class="btn btn-primary px-5">Начать тест</a>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->

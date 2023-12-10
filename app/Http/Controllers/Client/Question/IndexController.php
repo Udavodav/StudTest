@@ -11,16 +11,20 @@ use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
-    public function __invoke(Test $test, Question $question = null)
+    public function __invoke(Test $test)
     {
         if(!session('question_ids'))
         {
             $questions = Question::where('test_id', $test->id)
-                ->orderBy(DB::raw('RAND()'))->limit($test->count_questions)->get()->pluck('id');
-            session()->put('question_ids', $questions);
+                ->inRandomOrder()
+                //->orderBy(DB::raw('RAND()'))
+                //->with(['answers' => function($query){ $query->inRandomOrder(); }])
+                ->limit($test->count_questions)
+                ->get();
+            $questions->load(['answers' => function($query){ $query->inRandomOrder(); }]);
         }
 
-        dd(session('question_ids'));
-        return view('client.question.index', compact('tests'));
+        dd($questions);
+        return view('client.question.index', compact(['test','questions']));
     }
 }

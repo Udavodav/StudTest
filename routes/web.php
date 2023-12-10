@@ -54,7 +54,7 @@ Route::namespace('App\Http\Controllers\Client')->prefix('/client')->name('client
     });
     Route::namespace('Question')->prefix('/question')->name('question.')->group(function (){
 
-        Route::get('/{test}/{question?}', IndexController::class)->name('index');
+        Route::get('/{test}', IndexController::class)->name('index');
     });
 });
 

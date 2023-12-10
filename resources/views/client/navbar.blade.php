@@ -1,30 +1,45 @@
-<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            StudTest
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="user-panel mt-2 pb-1 mb-2 d-flex">
-        <div class="image">
-            <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-2">
-        </div>
-        <div class="info">
-            <a href="#" class="d-block">StudTest</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Left Side Of Navbar -->
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">Access Tests</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="#" class="nav-link">Results</a>
+                </li>
+            </ul>
+
+            <!-- Right Side Of Navbar -->
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
-
-    <div class="user-panel mt-2 pb-1 mb-2 d-flex mx-5">
-        <div class="image">
-            <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-            <a href="#" class="d-block">{{Auth::user()->name}}</a>
-        </div>
-    </div>
-
-    <ul class="navbar-nav">
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Home</a>
-        </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Home</a>
-        </li>
-    </ul>
 </nav>
 
