@@ -12,11 +12,11 @@ class ShowController extends Controller
 {
     public function __invoke(Test $test)
     {
-        $inviteInfo = InviteTest::where([
+        $invite = InviteTest::where([
                     ['test_id', '=', $test->id],
                     ['user_id', '=',  auth()->user()->id]
                 ])->first();
-        //dd($inviteInfo);
-        return view('client.test.show', compact(['test', 'inviteInfo']));
+
+        return view('client.test.show', compact(['test', 'invite']));
     }
 }

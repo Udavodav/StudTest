@@ -11,7 +11,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Access Tests</a>
+                    <a href="{{route('client.test.index')}}" class="nav-link">Access Tests</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Results</a>

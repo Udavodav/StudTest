@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Access tests</h1>
+                        <h1 class="m-0">Доступные для прохождения тесты</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -21,7 +21,7 @@
             <div class="container-fluid">
 
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-lg-8 col-12">
                         <!-- small box -->
                         <div class="small-box" style="background: #{{dechex(rand(10000000,16777215))}}">
                             <div class="inner">
@@ -37,22 +37,19 @@
                                                 data-type="trSpan">Count questions: {{$test->count_questions}}<br/></span>
 
                                     <span data-index="26-0" data-ch="0"
-                                                data-type="trSpan">Count attempts: {{$inviteInfo->count_attempts}}<br/></span>
+                                                data-type="trSpan">Count attempts: {{$invite->count_attempts}}<br/></span>
 
                                     <span data-index="26-0" data-ch="0"
                                                 data-type="trSpan">
-                                        Count minutes: {{$inviteInfo->count_minutes == 0 ? 'Без ограничения по времени' : $inviteInfo->count_minutes}}<br/></span>
+                                        Count minutes: {{$invite->count_minutes == 0 ? 'Без ограничения по времени' : $invite->count_minutes}}<br/></span>
 
                                     <span data-index="26-0" data-ch="0"
                                                 data-type="trSpan">
-                                        Access until - {{$inviteInfo->time_access == null ? 'Пока не закончатся попытки' : $inviteInfo->time_access}}<br/></span>
+                                        Access until - {{$invite->time_access == null ? 'Пока не закончатся попытки' : $invite->time_access}}<br/></span>
                                 </p>
                             </div>
-                            <div class="icon">
-                                <i class="ion ion-bag"></i>
-                            </div>
                         </div>
-                        <a href="{{route('client.question.index', $test)}}" class="btn btn-primary px-5">Начать тест</a>
+                        <a href="{{route('client.question.index', [$test, $invite])}}" class="btn btn-primary px-5">Начать тест</a>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->

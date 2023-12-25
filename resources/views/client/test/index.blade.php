@@ -24,7 +24,7 @@
 
                     @if(isset($tests) && $tests != null)
                         @foreach($tests as $test)
-                            <div class="col-lg-3 col-6">
+                            <div class="col-lg-3 col-md-6 col-12">
                                 <!-- small box -->
                                 <div class="small-box" style="background: #{{dechex(rand(3000000,10000000))}}">
                                     <div class="inner">
@@ -36,9 +36,6 @@
                                                         data-ch="0" data-type="trSpan">{{$test->description == null ? 'Without description' : $test->description}}
                                             </ya-tr-span>
                                         </p>
-                                    </div>
-                                    <div class="icon">
-                                        <i class="ion ion-bag"></i>
                                     </div>
                                     <a href="{{route('client.test.show', $test)}}" class="stretched-link"></a>
                                 </div>
