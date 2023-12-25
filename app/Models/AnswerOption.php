@@ -9,4 +9,8 @@ class AnswerOption extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function isTrue(){
+        return (bool) $this->is_right;
+    }
 }

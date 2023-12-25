@@ -10,4 +10,13 @@ class ResultAnswerOrder extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+
+    public function answerOption1(){
+        return $this->hasOne(AnswerOrder::class, 'id', 'result_answer_order_option1_id');
+    }
+
+    public function answerOption2(){
+        return $this->hasOne(AnswerOrder::class, 'id', 'result_answer_order_option2_id');
+    }
 }

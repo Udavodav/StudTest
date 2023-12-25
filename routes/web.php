@@ -57,6 +57,11 @@ Route::namespace('App\Http\Controllers\Client')->prefix('/client')->name('client
         Route::get('/{test}/{invite}', IndexController::class)->name('index');
         Route::post('/', StoreController::class)->name('store');
     });
+    Route::namespace('Result')->prefix('/result')->name('result.')->group(function (){
+
+        Route::get('/{result}', ShowController::class)->name('show');
+        //Route::post('/', StoreController::class)->name('store');
+    });
 });
 
 

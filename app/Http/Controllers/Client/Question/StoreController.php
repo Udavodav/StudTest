@@ -28,19 +28,21 @@ class StoreController extends Controller
         $data = $request->validated();
         $data = $this->parsingData($data);
 
-        $res = $this->checkAnswers($data);
+        $results = $this->checkAnswers($data);
 
-        $result = DB::transaction(function () use ($data, $res){
-            $result = Result::create([
+        $testResult = DB::transaction(function () use ($data, $results){
+            $invite = InviteTest::find($data['invite_id']);
+            $invite->update(['count_attempts' => $invite->count_attempts - 1]);
+            $testResult = Result::create([
                 'invite_id' => $data['invite_id'],
-                'percent_of_right' => array_sum($res['score_questions'])/$res['max_count_points'],
-                'max_points' => $res['max_count_points']
+                'percent_of_right' => array_sum($results['score_questions'])/$results['max_count_points'],
+                'max_points' => $results['max_count_points']
             ]);
             foreach ($data['questions'] as $question){
                 $newQuestion = ResultQuestion::create([
-                    'result_id' => $result->id,
+                    'result_id' => $testResult->id,
                     'question_id' => $question['question_id'],
-                    'score' => $res['score_questions'][$question['question_id']]
+                    'score' => $results['score_questions'][$question['question_id']]
                 ]);
                 if(!isset($question['answers']))
                     continue;
@@ -71,11 +73,10 @@ class StoreController extends Controller
                     }
                 }
             }
-            return $result;
+            return $testResult;
         });
 
-        dd($res);
-        return view();
+        return redirect()->route('client.result.show', $testResult->id);
     }
 
     private function parsingData($data){
@@ -99,7 +100,6 @@ class StoreController extends Controller
 
     private function checkAnswers($data){
          $results = [
-             //'count_of_points' => 0,
              'max_count_points' => Question::whereIn('id', Arr::pluck($data['questions'], 'question_id'))->sum('score')
          ];
 

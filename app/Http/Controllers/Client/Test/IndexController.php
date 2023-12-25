@@ -11,7 +11,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $tests = Auth::user()->inviteTests()->get();
+        $tests = Auth::user()->inviteTests()->where('count_attempts', '>', 0)->get();
         return view('client.test.index', compact('tests'));
     }
 }

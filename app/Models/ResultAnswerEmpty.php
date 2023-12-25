@@ -10,4 +10,5 @@ class ResultAnswerEmpty extends Model
     use HasFactory;
 
     protected $guarded = [];
+
 }

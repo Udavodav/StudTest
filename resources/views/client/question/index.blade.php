@@ -47,19 +47,19 @@
                                     </div>
                                     @switch($question->type_id)
                                         @case(1)
-                                        @include('client.question.templates.once_answer')
+                                        @include('client.question.templates.take_test.once_answer')
                                         @break
                                         @case(2)
-                                        @include('client.question.templates.many_answer')
+                                        @include('client.question.templates.take_test.many_answer')
                                         @break
                                         @case(3)
-                                        @include('client.question.templates.empty_answer')
+                                        @include('client.question.templates.take_test.empty_answer')
                                         @break
                                         @case(4)
-                                        @include('client.question.templates.order_answer')
+                                        @include('client.question.templates.take_test.order_answer')
                                         @break
                                         @case(5)
-                                        @include('client.question.templates.comparison_answer')
+                                        @include('client.question.templates.take_test.comparison_answer')
                                         @break
                                     @endswitch
                                 </div>
