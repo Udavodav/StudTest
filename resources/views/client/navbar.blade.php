@@ -14,7 +14,7 @@
                     <a href="{{route('client.test.index')}}" class="nav-link">Access Tests</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Results</a>
+                    <a href="{{route('client.result.index')}}" class="nav-link">Results</a>
                 </li>
             </ul>
 

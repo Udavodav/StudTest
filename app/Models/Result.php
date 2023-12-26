@@ -14,4 +14,8 @@ class Result extends Model
     public function invite(){
         return $this->belongsTo(InviteTest::class);
     }
+
+    public function questions(){
+        return $this->hasMany(ResultQuestion::class);
+    }
 }

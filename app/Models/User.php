@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -51,5 +52,15 @@ class User extends Authenticatable
 
     public function inviteTests(){
         return $this->belongsToMany(Test::class, 'invite_tests');
+    }
+
+    public function resultTests(){
+        return DB::table('users')
+            ->join('invite_tests', 'users.id','=','invite_tests.user_id')
+            ->join('results', 'results.invite_id','=', 'invite_tests.id')
+            ->leftJoin('tests', 'tests.id','=','invite_tests.test_id')
+            ->select('tests.*')
+            ->distinct()
+            ->get();
     }
 }

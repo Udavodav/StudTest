@@ -96,7 +96,11 @@
                     @endif
                     <div class="row">
                         <div class="col-md-4 col-sm-12 col-3">
+                        @if($isBack)
+                            <a type="button" href="{{url()->previous()}}" class="btn btn-primary mx-lg-3 py-3 w-100">Назад</a>
+                        @else
                             <a type="button" href="{{route('client.test.index')}}" class="btn btn-primary mx-lg-3 py-3 w-100">На главную</a>
+                        @endif
                         </div>
                     </div>
             </div>

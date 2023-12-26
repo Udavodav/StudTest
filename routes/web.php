@@ -59,8 +59,9 @@ Route::namespace('App\Http\Controllers\Client')->prefix('/client')->name('client
     });
     Route::namespace('Result')->prefix('/result')->name('result.')->group(function (){
 
-        Route::get('/{result}', ShowController::class)->name('show');
-        //Route::post('/', StoreController::class)->name('store');
+        Route::get('/', IndexController::class)->name('index');
+        Route::get('/test/{test}', TestResultController::class)->name('details');
+        Route::get('/{result}/{isBack?}', ShowController::class)->name('show');
     });
 });
 

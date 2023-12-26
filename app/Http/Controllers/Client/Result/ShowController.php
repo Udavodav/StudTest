@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\DB;
 
 class ShowController extends Controller
 {
-    public function __invoke(Result $result)
+    public function __invoke(Result $result, $isBack = false)
     {
         $resultQuestions = ResultQuestion::where('result_id', $result->id)->get();
 
-        return view('client.result.show_result', compact(['result', 'resultQuestions']));
+        return view('client.result.show_result', compact(['result', 'resultQuestions', 'isBack']));
 
     }
 }

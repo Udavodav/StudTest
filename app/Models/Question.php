@@ -34,14 +34,6 @@ class Question extends Model
         return $this->belongsTo(Test::class);
     }
 
-    public function answersOption(){
-        return $this->hasMany(AnswerOption::class);
-    }
-
-    public function answersOrder(){
-        return $this->hasMany(AnswerOrder::class);
-    }
-
 }
 
 
