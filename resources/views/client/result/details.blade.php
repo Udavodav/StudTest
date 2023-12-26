@@ -42,24 +42,26 @@
                                         <td>{{round($result->questions->sum('score'), 2)}}</td>
                                         <td>{{$result->percent_of_right * 100}}%</td>
                                         <td>
-                                            <a href="{{route('client.result.show', [$result, true])}}" class="text-success mx-2"><i class="fas fa-eye"></i></a>
+                                            <a href="{{route('client.result.show', [$result, true])}}"
+                                               class="text-success mx-2"><i class="fas fa-eye"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <div class="col-md-4 col-sm-12 col-3">
-                        <a type="button" href="{{route('client.result.index')}}" class="btn btn-primary mx-lg-3 py-3 w-100">К списку тестов</a>
+                    <div class="col-md-4 col-sm-12 col-3 my-3">
+                        {{ $results->links() }}
                     </div>
-                    <div class="row h-25">
-
+                    <div class="row">
+                        <div class="col-md-4 col-sm-12 col-3">
+                            <a type="button" href="{{route('client.result.index')}}"
+                               class="btn btn-primary mx-lg-3 py-3 w-100">К списку тестов</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            {{ $results->links() }}
         </section>
     </div>
 

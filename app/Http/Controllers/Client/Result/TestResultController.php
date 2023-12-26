@@ -19,7 +19,7 @@ class TestResultController extends Controller
                 ['invite_tests.user_id','=',Auth::user()->id],
                 ['invite_tests.test_id','=',$test->id]
             ])
-            ->paginate(2);
+            ->paginate(15);
 
         return view('client.result.details', compact(['test', 'results']));
     }
