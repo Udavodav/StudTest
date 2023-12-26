@@ -35,7 +35,7 @@
 
     @yield('content')
 
-    @include('admin.footer')
+{{--    @include('admin.footer')--}}
 
 </div>
 <script src="{{asset('dist/js/question/events_options.js')}}"></script>

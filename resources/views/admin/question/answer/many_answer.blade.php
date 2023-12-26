@@ -1,19 +1,19 @@
 <template id="templ_two">
     <div class="form-group" id="two">
         <div class="justify-content-between">
-            <label>Answers</label>
+            <label>Варианты ответа</label>
             <button class="btn btn-warning mx-md-5" type="button"
-                    onclick="onClickAddMany()">Add option
+                    onclick="onClickAddMany()">Добавить вариант
             </button>
             <button class="btn btn-danger mx-md-2" type="button"
-                    onclick="onClickDeleteLastOptionMany()">Delete last option
+                    onclick="onClickDeleteLastOptionMany()">Удалить последний вариант
             </button>
         </div>
         <table class="table table-bordered" id="tableMany">
             <thead>
             <tr>
-                <th>Text option</th>
-                <th>Options</th>
+                <th>Текст варианта ответа</th>
+                <th>Ответ</th>
             </tr>
             </thead>
             <tbody id='tableBodyMany'>
@@ -24,7 +24,7 @@
                         <tr id="tr{{$loop->index}}">
                             <td><textarea class="form-control" name="answers[{{$loop->index}}][text]" rows="2"
                                           maxlength="500"
-                                          placeholder="Text option">{{$answer->text}}</textarea>
+                                          placeholder="Текст варианта ответа">{{$answer->text}}</textarea>
                             </td>
                             <td>
                                 <div class="custom-control custom-checkbox">
@@ -32,7 +32,7 @@
                                            id="checkbox{{$loop->index}}" value="1" name="answers[{{$loop->index}}][is_right]"
                                     {{$answer->is_right == 1 ? 'checked' : ''}}>
                                     <label for="checkbox{{$loop->index}}"
-                                           class="custom-control-label">Is true?</label>
+                                           class="custom-control-label">Правильно?</label>
                                 </div>
                             </td>
                         </tr>
@@ -42,7 +42,7 @@
                         <tr id="tr{{$i}}">
                             <td><textarea class="form-control" name="answers[{{$i}}][text]" rows="2"
                                           maxlength="500"
-                                          placeholder="Text option">{{old('answers.'.$i.'.text','')}}</textarea>
+                                          placeholder="Текст варианта ответа">{{old('answers.'.$i.'.text','')}}</textarea>
                             </td>
                             <td>
                                 <div class="custom-control custom-checkbox">
@@ -50,7 +50,7 @@
                                            id="checkbox{{$i}}" value="1" name="answers[{{$i}}][is_right]"
                                         {{old('answers.'.$i.'.is_right',0) == 1 ? 'checked' : ''}}>
                                     <label for="checkbox{{$i}}"
-                                           class="custom-control-label">Is true?</label>
+                                           class="custom-control-label">Правильно?</label>
                                 </div>
                             </td>
                         </tr>
@@ -68,13 +68,13 @@
         <template id="templ_answer">
             <tr id="tr1">
                 <td><textarea class="form-control" name="name" rows="2" maxlength="500"
-                              placeholder="Text option"></textarea>
+                              placeholder="Текст варианта ответа"></textarea>
                 </td>
                 <td>
                     <div class="custom-control custom-checkbox">
                         <input class="custom-control-input" type="checkbox"
                                id="checkbox1" value="1" name="answers[][is_right]">
-                        <label for="checkbox1" class="custom-control-label">Is true?</label>
+                        <label for="checkbox1" class="custom-control-label">Правильно?</label>
                     </div>
                 </td>
             </tr>

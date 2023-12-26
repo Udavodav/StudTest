@@ -1,17 +1,17 @@
 <template id="templ_five">
     <div class="form-group" id="five">
         <div class="justify-content-between">
-            <label>Answers</label>
+            <label>Варианты ответа</label>
             <button class="btn btn-warning mx-md-5" type="button"
-                    onclick="onClickAddComparison()">Add option
+                    onclick="onClickAddComparison()">Добавить вариант
             </button>
         </div>
         <table class="table table-bordered" id="tableComparison">
             <thead>
             <tr>
-                <th>Column of options static</th>
-                <th>Column of options dynamic</th>
-                <th>Button</th>
+                <th>Столбец с неподвижными вариантами</th>
+                <th>Столбец с подвижными вариантами</th>
+                <th>Кнопки</th>
             </tr>
             </thead>
             <tbody id='tableBody'>
@@ -21,13 +21,13 @@
                     @foreach($question->answers as $answer)
                         <tr>
                             <td><textarea class="form-control" name="answers[{{$loop->index}}][option1]" rows="2"
-                                          maxlength="500" placeholder="Text option">{{$answer->option1}}</textarea>
+                                          maxlength="500" placeholder="Текст варианта ответа">{{$answer->option1}}</textarea>
                             </td>
                             <td><textarea class="form-control" name="answers[{{$loop->index}}][option2]" rows="2"
-                                          maxlength="500" placeholder="Text option">{{$answer->option2}}</textarea>
+                                          maxlength="500" placeholder="Текст варианта ответа">{{$answer->option2}}</textarea>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-danger" onclick="onClickDeleteComparisonItem(this)">Delete</button>
+                                <button type="button" class="btn btn-danger" onclick="onClickDeleteComparisonItem(this)">Удалить</button>
                             </td>
                         </tr>
                     @endforeach
@@ -35,13 +35,13 @@
                     @for($i = 0; $i < count(old('answers', [0,0])); $i++)
                         <tr>
                             <td><textarea class="form-control" name="answers[{{$i}}][option1]" rows="2"
-                                          maxlength="500" placeholder="Text option">{{old('answers.'.$i.'.option1','')}}</textarea>
+                                          maxlength="500" placeholder="Текст варианта ответа">{{old('answers.'.$i.'.option1','')}}</textarea>
                             </td>
                             <td><textarea class="form-control" name="answers[{{$i}}][option2]" rows="2"
-                                          maxlength="500" placeholder="Text option">{{old('answers.'.$i.'.option2','')}}</textarea>
+                                          maxlength="500" placeholder="Текст варианта ответа">{{old('answers.'.$i.'.option2','')}}</textarea>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-danger" onclick="onClickDeleteComparisonItem(this)">Delete</button>
+                                <button type="button" class="btn btn-danger" onclick="onClickDeleteComparisonItem(this)">Удалить</button>
                             </td>
                         </tr>
                     @endfor
@@ -59,13 +59,13 @@
         <template id="templ_comparison_item">
             <tr>
                 <td><textarea class="form-control" id="option1" name="answers[][option1]" rows="2"
-                              maxlength="500" placeholder="Text option"></textarea>
+                              maxlength="500" placeholder="Текст варианта ответа"></textarea>
                 </td>
                 <td><textarea class="form-control" id="option2" name="answers[][option2]" rows="2"
-                              maxlength="500" placeholder="Text option"></textarea>
+                              maxlength="500" placeholder="Текст варианта ответа"></textarea>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-danger" onclick="onClickDeleteComparisonItem(this)">Delete</button>
+                    <button type="button" class="btn btn-danger" onclick="onClickDeleteComparisonItem(this)">Удалить</button>
                 </td>
             </tr>
         </template>

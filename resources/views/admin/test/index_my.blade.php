@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h1 class="m-0">My tests</h1>
+                        <h1 class="m-0">Мои тесты</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -22,8 +22,7 @@
 
                 <div class="row mb-3">
                     <div class="col-lg-3 col-6">
-                        <a href="{{route('admin.test.create')}}" class="btn btn-block btn-success btn-lg">Create
-                            test</a>
+                        <a href="{{route('admin.test.create')}}" class="btn btn-block btn-success btn-lg">Создать тест</a>
                     </div>
                 </div>
 
@@ -44,11 +43,8 @@
                                         </ya-tr-span>
                                     </p>
                                 </div>
-                                <div class="icon">
-                                    <i class="ion ion-bag"></i>
-                                </div>
                                 <div class="small-box-footer">
-                                    <a href="#" class="btn btn-success px-5">Invite <i class="fas fa-share-alt"></i></a>
+                                    <a href="#" class="btn btn-success px-5">Раздать <i class="fas fa-share-alt"></i></a>
                                 </div>
                                 <a href="{{route('admin.test.show', $test)}}" class="stretched-link"></a>
                             </div>

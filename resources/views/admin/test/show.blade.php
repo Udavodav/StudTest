@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Show test</h1>
+                        <h1 class="m-0">Обзор теста</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -34,18 +34,15 @@
                                                 data-ch="0" data-type="trSpan">{{$test->description}}</ya-tr-span>
                                 </p>
                             </div>
-                            <div class="icon">
-                                <i class="ion ion-bag"></i>
-                            </div>
                             <div class="small-box-footer">
-                                <a href="#" class="btn btn-success px-5">Invite <i class="fas fa-share-alt"></i></a>
+                                <a href="#" class="btn btn-success px-5">Раздать <i class="fas fa-share-alt"></i></a>
                                 @if($test->user_id == auth()->id())
-                                    <a href="{{route('admin.test.edit', $test)}}" class="btn btn-success px-5">Edit test
+                                    <a href="{{route('admin.test.edit', $test)}}" class="btn btn-success px-5">Изменить
                                         <i class="fas fa-edit"></i></a>
                                     <form action="{{route('admin.test.delete', $test)}}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger px-5 mt-3">Delete test <i
+                                        <button type="submit" class="btn btn-danger px-5 mt-3">Удалить <i
                                                 class="fas fa-trash-alt"></i></button>
                                     </form>
                                 @endif
@@ -60,31 +57,30 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h4 class="m-0">Questions</h4>
+                        <h4 class="m-0">Вопросы</h4>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
                 <div class="row py-3">
                     <div class="col-sm-6">
-                        <a href="{{route('admin.question.create', $test->id)}}" class="btn btn-success px-5">Add
-                            question</a>
+                        <a href="{{route('admin.question.create', $test->id)}}" class="btn btn-success px-5">Добавить вопрос</a>
                     </div><!-- /.col -->
                 </div>
                 <div class="col-sm-12">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">List questions</h3>
+                                <h3 class="card-title">Список вопросов</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th class="w-50">Text</th>
-                                        <th>Type</th>
-                                        <th>Balls</th>
-                                        <th colspan="2" class="text-center">Options</th>
+                                        <th>#</th>
+                                        <th class="w-50">Текст</th>
+                                        <th>Тип</th>
+                                        <th>Баллы</th>
+                                        <th colspan="2" class="text-center">Кнопки</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -101,7 +97,7 @@
                                                 <form method="POST" action="{{route('admin.question.delete', $question->id)}}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="text-danger ml-5 border-0 bg-transparent" onclick="return confirm('Are you sure?')">
+                                                    <button type="submit" class="text-danger ml-5 border-0 bg-transparent" onclick="return confirm('Вы уверены?')">
                                                         <i class="fas fa-trash-alt"></i></button>
                                                 </form>
                                             </td>

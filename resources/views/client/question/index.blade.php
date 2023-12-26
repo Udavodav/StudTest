@@ -93,12 +93,10 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- /.container-fluid -->
+                </div>
             </div>
         </section>
-        <!-- /.content -->
         <script src="{{asset('dist/js/timer.js')}}"></script>
     </div>
-    <!-- /.content-wrapper -->
 
 @endsection

@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Editing test</h1>
+                        <h1 class="m-0">Изменение теста</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -31,13 +31,13 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Title</label>
-                                        <input type="text" name="title" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Title" value="{{old('title','') == '' ? old('title') : $test->title}}">
+                                        <input type="text" name="Название" class="form-control" id="exampleInputEmail1"
+                                               placeholder="Название" value="{{old('title','') == '' ? old('title') : $test->title}}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="points">Number of point</label>
-                                        <input type="number" name="question[score]" class="form-control" id="points"
-                                               placeholder="Number of point"
+                                        <label for="points">Количество вопросов для прохождения</label>
+                                        <input type="number" name="count_questions" class="form-control" id="points"
+                                               placeholder="Количество вопросов"
                                                value="{{old('count_questions','') == '' ? old('count_questions') : $test->count_questions}}"
                                                max="1000">
                                         @error('count_questions')
@@ -45,15 +45,15 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label>Description</label>
+                                        <label>Описание</label>
                                         <textarea class="form-control" rows="3" maxlength="250" name="description"
-                                                  placeholder="Description">{{old('description','') == '' ? old('description') : $test->description}}</textarea>
+                                                  placeholder="Описание">{{old('description','') == '' ? old('description') : $test->description}}</textarea>
                                     </div>
 
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Изменить</button>
                                 </div>
                             </form>
                         </div>

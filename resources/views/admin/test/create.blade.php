@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Creating test</h1>
+                        <h1 class="m-0">Создание теста</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -29,25 +29,25 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Title</label>
+                                        <label for="exampleInputEmail1">Название</label>
                                         <input type="text" name="title" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Title" value="{{old('title','')}}">
+                                               placeholder="Название" value="{{old('title','')}}">
                                         @error('title')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="points">Number of point</label>
-                                        <input type="number" name="question[score]" class="form-control" id="points"
-                                               placeholder="Number of point" value="{{old('count_questions')}}" max="1000">
+                                        <label for="points">Количество вопросов для прохождения</label>
+                                        <input type="number" name="count_questions" class="form-control" id="points"
+                                               placeholder="Количество вопросов" value="{{old('count_questions')}}" max="200">
                                         @error('count_questions')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label>Description</label>
+                                        <label>Описание</label>
                                         <textarea class="form-control" rows="3" maxlength="250" name="description"
-                                                  placeholder="Description">{{old('description','')}}</textarea>
+                                                  placeholder="Описание">{{old('description','')}}</textarea>
                                         @error('description')
                                         <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -56,7 +56,7 @@
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Создать</button>
                                 </div>
                             </form>
                         </div>
