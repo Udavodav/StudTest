@@ -18,4 +18,5 @@ class Result extends Model
     public function questions(){
         return $this->hasMany(ResultQuestion::class);
     }
+
 }

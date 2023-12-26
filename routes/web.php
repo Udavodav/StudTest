@@ -44,6 +44,13 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('/admin')->name('admin.')
         Route::patch('/{question}', UpdateController::class)->name('update');
         Route::delete('/{question}', DeleteController::class)->name('delete');
         });
+
+    Route::namespace('Result')->prefix('/result')->name('result.')->group(function () {
+
+        Route::get('/', IndexController::class)->name('index');
+        Route::get('/{result}', ShowController::class)->name('show');
+        Route::get('/detail/{test}', DetailController::class)->name('details');
+    });
 });
 
 Route::namespace('App\Http\Controllers\Client')->prefix('/client')->name('client.')->middleware(['auth', 'client'])->group(function (){

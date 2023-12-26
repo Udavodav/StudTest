@@ -1,8 +1,8 @@
-@extends('client.layouts.main')
+@extends('admin.layouts.main')
 
 @section('content')
 
-    <div class="content">
+    <div class="content-wrapper">
         <section class="content">
             <div class="container-xxl">
 
@@ -31,7 +31,7 @@
                         </div>
                     </div>
 
-                    @if($result->invite->is_can_view == 1)
+
                         @foreach($resultQuestions as $resQuestion)
                             <div class="card card-primary">
                                 <div class="card-header">
@@ -92,14 +92,10 @@
                                 </div>
                             </div>
                         @endforeach
-                    @endif
+
                     <div class="row">
-                        <div class="col-md-4 col-sm-12 col-3">
-                        @if($isBack)
+                        <div class="col-xl-2 col-md-4 col-sm-12 col-12">
                             <a type="button" href="{{url()->previous()}}" class="btn btn-primary mx-lg-3 py-3 w-100">Назад</a>
-                        @else
-                            <a type="button" href="{{route('client.test.index')}}" class="btn btn-primary mx-lg-3 py-3 w-100">На главную</a>
-                        @endif
                         </div>
                     </div>
             </div>
