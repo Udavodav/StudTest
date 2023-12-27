@@ -14,6 +14,15 @@ class StoreRequest extends FormRequest
         return true;
     }
 
+    public function messages()
+    {
+        return [
+            'title.required' => 'Обязательное для заполнения поле',
+            'count_questions.required' => 'Обязательное для заполнения поле',
+            'count_questions.digits_between' => 'Значение должно быть целым числом от 0 до 200',
+        ];
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *

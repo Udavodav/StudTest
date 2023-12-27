@@ -44,6 +44,23 @@ class StoreRequest extends FormRequest
         $this->replace($input);
     }
 
+    public function messages()
+    {
+        return [
+            'question.text.required' => 'Обязательное для заполнения поле',
+            'question.type_id.required' => 'Обязательное для заполнения поле',
+            'question.path_image.image' => 'Загружаемый файл должен быть изображением',
+            'question.score.required' => 'Обязательное для заполнения поле',
+            'question.score.digits_between' => 'Значение должно быть целым числом от 0 до 1000',
+            'answers.required_if' => 'Заполните варианты ответов',
+            'answers.*.text.required_if' => 'Заполните варианты ответов',
+            'answers.*.is_right.required_if' => 'Отметьте правильные варианты ответа',
+            'empty_answer.answer.required_if' => 'Введите ответ на вопрос',
+            'answers.*.option1.required_if' => 'Заполните варианты ответов в столбце 1',
+            'answers.*.option2.required_if' => 'Заполните варианты ответов в столбце 2',
+        ];
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *

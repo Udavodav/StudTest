@@ -14,6 +14,16 @@ class StoreRequest extends FormRequest
         return true;
     }
 
+    public function messages()
+    {
+        return [
+            'count_attempts.required' => 'Обязательное для заполнения поле',
+            'count_attempts.integer' => 'Значение должно быть целым числом',
+            'count_minutes.required' => 'Обязательное для заполнения поле',
+            'count_minutes.integer' => 'Значение должно быть целым числом',
+        ];
+    }
+
 
     /**
      * Get the validation rules that apply to the request.
