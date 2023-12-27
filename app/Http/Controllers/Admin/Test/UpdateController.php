@@ -13,8 +13,13 @@ class UpdateController extends Controller
     public function __invoke(UpdateRequest $request, Test $test)
     {
         $data = $request->validated();
-        //$data['user_id'] = auth()->id();
-        $test->update($data);
+
+        try {
+            $test->update($data);
+        } catch (\Exception $exception) {
+            abort(500);
+        }
+
         return redirect()->route('admin.test.show', $test);
     }
 }

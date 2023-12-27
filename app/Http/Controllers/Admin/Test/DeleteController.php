@@ -10,7 +10,12 @@ class DeleteController extends Controller
 {
     public function __invoke(Test $test)
     {
-        $test->delete();
+        try {
+            $test->delete();
+        } catch (\Exception $exception) {
+            abort(500);
+        }
+
         return redirect()->route('admin.test.index_my');
     }
 }

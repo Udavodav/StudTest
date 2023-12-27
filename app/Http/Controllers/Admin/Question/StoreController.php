@@ -17,33 +17,39 @@ class StoreController extends Controller
     {
         $data = $request->validated();
 
-        DB::transaction(function () use ($data) {
+        try {
+            DB::transaction(function () use ($data) {
 
-            if(isset($data['question']['path_image']))
-                $data['question']['path_image'] = Storage::disk('public')->put('/images', $data['question']['path_image']);
-            $question = Question::create($data['question']);
+                if (isset($data['question']['path_image']))
+                    $data['question']['path_image'] = Storage::disk('public')->put('/images', $data['question']['path_image']);
+                $question = Question::create($data['question']);
 
-            switch ($data['question']['type_id']){
-                case '1':case '2':
-                    foreach ($data['answers'] as $value){
-                        $value['question_id'] = $question['id'];
-                        AnswerOption::create($value);
-                    }
-                break;
+                switch ($data['question']['type_id']) {
+                    case '1':
+                    case '2':
+                        foreach ($data['answers'] as $value) {
+                            $value['question_id'] = $question['id'];
+                            AnswerOption::create($value);
+                        }
+                        break;
 
-                case '3':
-                    $data['empty_answer']['question_id'] = $question['id'];
-                    AnswerEmpty::create($data['empty_answer']);
-                break;
+                    case '3':
+                        $data['empty_answer']['question_id'] = $question['id'];
+                        AnswerEmpty::create($data['empty_answer']);
+                        break;
 
-                case '4':case '5':
-                foreach ($data['answers'] as $value){
-                    $value['question_id'] = $question['id'];
-                    AnswerOrder::create($value);
+                    case '4':
+                    case '5':
+                        foreach ($data['answers'] as $value) {
+                            $value['question_id'] = $question['id'];
+                            AnswerOrder::create($value);
+                        }
+                        break;
                 }
-                break;
-            }
-        });
+            });
+        } catch (\Exception $exception) {
+            abort(500);
+        }
 
         return redirect()->route('admin.test.show', $data['question']['test_id']);
     }

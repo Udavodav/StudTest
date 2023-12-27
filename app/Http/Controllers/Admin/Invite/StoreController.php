@@ -27,10 +27,10 @@ class StoreController extends Controller
                     ]);
                 }
             });
-            return redirect()->route('admin.test.index_all');
         }catch (\Exception $exception){
             abort(500);
         }
 
+        return redirect()->route('admin.test.index_all');
     }
 }

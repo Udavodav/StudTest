@@ -18,10 +18,10 @@ class StoreController extends Controller
         $data = $request->validated();
         try {
             Group::create($data);
-            return redirect()->route('admin.group.index');
         }catch (\Exception $exception){
             abort(500);
         }
 
+        return redirect()->route('admin.group.index');
     }
 }

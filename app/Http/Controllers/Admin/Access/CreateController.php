@@ -15,7 +15,11 @@ class CreateController extends Controller
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-        AccessTest::create($data);
+        try {
+            AccessTest::create($data);
+        } catch (\Exception $exception) {
+            abort(500);
+        }
 
         return redirect()->route('admin.access.index', $data['test_id']);
     }
