@@ -29,6 +29,7 @@ class Timer {
         }, 1000);
     }
 
+
     format() {
         let hours = parseInt(this.time / 3600);
         let timeLeft = this.time - hours * 3600;
@@ -64,6 +65,7 @@ class Timer {
         if (this.time <= 0) {
             timerblock.innerHTML = 'Time end!';
             this.stop();
+            document.getElementById('submit_button').click();
         }
         else {
             setTimeout(() => {
@@ -96,6 +98,7 @@ class Timer {
         this.control = false;
     }
 }
+
 
 window.onload = function () {
     if(document.getElementById('customTimer') === null)

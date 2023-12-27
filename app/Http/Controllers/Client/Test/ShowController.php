@@ -14,9 +14,9 @@ class ShowController extends Controller
     {
         $invite = InviteTest::where([
                     ['test_id', '=', $test->id],
-                    ['user_id', '=',  auth()->user()->id]
+                    ['user_id', '=',  auth()->user()->id],
+                    ['count_attempts', '>',  0]
                 ])->first();
-
         return view('client.test.show', compact(['test', 'invite']));
     }
 }

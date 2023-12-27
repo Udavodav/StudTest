@@ -62,7 +62,7 @@
                         @endforeach
                         <div class="row">
                             <div class="col-md-4 col-sm-12 col-3">
-                                <button type="submit" class="btn btn-primary mx-lg-3 py-3 w-100">Завершить тест</button>
+                                <button type="submit" id="submit_button" class="btn btn-primary mx-lg-3 py-3 w-100">Завершить тест</button>
                             </div>
                         </div>
 
