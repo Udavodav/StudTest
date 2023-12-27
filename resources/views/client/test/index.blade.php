@@ -2,21 +2,16 @@
 
 @section('content')
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
                         <h1 class="m-0">Доступные для прохождения тесты</h1>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
-
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
 
@@ -33,7 +28,7 @@
                                             <ya-tr-span data-index="26-0" data-translated="false" data-source-lang="en"
                                                         style="display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 40ch"
                                                         data-target-lang="ru" data-value="{{$test->description}}"
-                                                        data-ch="0" data-type="trSpan">{{$test->description == null ? 'Without description' : $test->description}}
+                                                        data-ch="0" data-type="trSpan">{{$test->description == null ? 'Без описания' : $test->description}}
                                             </ya-tr-span>
                                         </p>
                                     </div>
@@ -43,10 +38,8 @@
                         @endforeach
                     @endif
                 </div>
-            </div><!-- /.container-fluid -->
+            </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
 
 @endsection

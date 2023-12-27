@@ -40,7 +40,7 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('/admin')->name('admin.')
 
         Route::get('/{test}/create', CreateController::class)->name('create');
         Route::post('/', StoreController::class)->name('store');
-        Route::get('/{question}/edit', EditController::class)->name('edit');
+        //Route::get('/{question}/edit', EditController::class)->name('edit');
         Route::patch('/{question}', UpdateController::class)->name('update');
         Route::delete('/{question}', DeleteController::class)->name('delete');
         });
@@ -50,6 +50,12 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('/admin')->name('admin.')
         Route::get('/', IndexController::class)->name('index');
         Route::get('/{result}', ShowController::class)->name('show');
         Route::get('/detail/{test}', DetailController::class)->name('details');
+    });
+
+    Route::namespace('Access')->prefix('/access')->name('access.')->group(function () {
+
+        Route::get('/{test}', IndexController::class)->name('index');
+        Route::post('/', CreateController::class)->name('create');
     });
 });
 

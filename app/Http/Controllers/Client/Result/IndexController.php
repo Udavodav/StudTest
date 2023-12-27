@@ -11,7 +11,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $tests = Auth::user()->resultTests();
+        $tests = Auth::user()->resultTests()->paginate(20);
         return view('client.result.index_result', compact('tests'));
     }
 }

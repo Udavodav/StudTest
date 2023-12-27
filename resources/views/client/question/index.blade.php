@@ -2,12 +2,7 @@
 
 @section('content')
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content">
-        <!-- Content Header (Page header) -->
-
-        <!-- /.content-header -->
-        <!-- Main content -->
         <section class="content">
             <div class="container-xxl">
 
@@ -17,9 +12,9 @@
                             <div class="col-sm-6">
                                 <h1 class="m-0">Тестирование: {{$test->title}}</h1>
                                 <input class="d-none" id="count_minutes" value="{{$invite->count_minutes}}"/>
-                            </div><!-- /.col -->
-                        </div><!-- /.row -->
-                    </div><!-- /.container-fluid -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="row">

@@ -55,12 +55,10 @@ class User extends Authenticatable
     }
 
     public function resultTests(){
-        return DB::table('users')
-            ->join('invite_tests', 'users.id','=','invite_tests.user_id')
-            ->join('results', 'results.invite_id','=', 'invite_tests.id')
-            ->leftJoin('tests', 'tests.id','=','invite_tests.test_id')
+        return Test::rightJoin('invite_tests', 'tests.id','=', 'invite_tests.test_id')
+            ->join('users', 'users.id','=','invite_tests.user_id')
+            ->join('results', 'invite_tests.id','=','results.invite_id')
             ->select('tests.*')
-            ->distinct()
-            ->get();
+            ->distinct();
     }
 }

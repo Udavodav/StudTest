@@ -2,21 +2,17 @@
 
 @section('content')
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
                         <h1 class="m-0">Мои тесты</h1>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
 
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
 
@@ -39,12 +35,12 @@
                                                     data-target-lang="ru" data-value="{{$test->description}}"
                                                     style="display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 40ch"
                                                     data-ch="0"
-                                                    data-type="trSpan">{{$test->description == null ? 'Without description' : $test->description}}
+                                                    data-type="trSpan">{{$test->description == null ? 'Без описания' : $test->description}}
                                         </ya-tr-span>
                                     </p>
                                 </div>
                                 <div class="small-box-footer">
-                                    <a href="#" class="btn btn-success px-5">Раздать <i class="fas fa-share-alt"></i></a>
+                                    <a href="{{ route('admin.access.index', $test->id) }}" class="btn btn-success px-5">Поделиться <i class="fas fa-share-alt"></i></a>
                                 </div>
                                 <a href="{{route('admin.test.show', $test)}}" class="stretched-link"></a>
                             </div>
@@ -52,10 +48,8 @@
                     @endforeach
 
                 </div>
-            </div><!-- /.container-fluid -->
+            </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
 
 @endsection

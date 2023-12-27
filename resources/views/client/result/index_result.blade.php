@@ -40,6 +40,12 @@
                         @endforeach
                     @endif
                 </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-12 col-3 my-3">
+                    {{ $tests->links() }}
+                </div>
             </div>
         </section>
     </div>
