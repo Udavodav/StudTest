@@ -71,6 +71,10 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('/admin')->name('admin.')
         Route::get('/create', CreateController::class)->name('create');
         Route::post('/', StoreController::class)->name('store');
     });
+
+    Route::fallback(function () {
+        abort(404);
+    });
 });
 
 Route::namespace('App\Http\Controllers\Client')->prefix('/client')->name('client.')->middleware(['auth', 'client'])->group(function (){
@@ -89,6 +93,10 @@ Route::namespace('App\Http\Controllers\Client')->prefix('/client')->name('client
         Route::get('/', IndexController::class)->name('index');
         Route::get('/test/{test}', TestResultController::class)->name('details');
         Route::get('/{result}/{isBack?}', ShowController::class)->name('show');
+    });
+
+    Route::fallback(function () {
+        abort(404);
     });
 });
 
