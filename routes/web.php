@@ -63,6 +63,13 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('/admin')->name('admin.')
         Route::get('/{test}', IndexController::class)->name('index');
         Route::post('/', StoreController::class)->name('store');
     });
+
+    Route::namespace('Group')->prefix('/group')->name('group.')->group(function () {
+
+        Route::get('/', IndexController::class)->name('index');
+        Route::get('/create', CreateController::class)->name('create');
+        Route::post('/', StoreController::class)->name('store');
+    });
 });
 
 Route::namespace('App\Http\Controllers\Client')->prefix('/client')->name('client.')->middleware(['auth', 'client'])->group(function (){
