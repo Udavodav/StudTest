@@ -39,6 +39,7 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('/admin')->name('admin.')
     Route::namespace('Question')->prefix('/question')->name('question.')->group(function () {
 
         Route::get('/{test}/create', CreateController::class)->name('create');
+        Route::get('/{question}', ShowController::class)->name('show');
         Route::post('/', StoreController::class)->name('store');
         //Route::get('/{question}/edit', EditController::class)->name('edit');
         Route::patch('/{question}', UpdateController::class)->name('update');

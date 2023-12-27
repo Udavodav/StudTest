@@ -92,6 +92,10 @@
                                             {{--                                                    <a href="{{route('admin.question.edit', $question->id)}}" class="text-success mx-2"><i class="fas fa-edit"></i></a>--}}
                                             {{--                                            </td>--}}
                                             <td>
+                                                <a href="{{route('admin.question.show', $question->id)}}"
+                                                   class="text-success mx-2"><i class="fas fa-eye"></i></a>
+                                            </td>
+                                            <td>
                                                 @if($test->user_id == auth()->id())
                                                     <form method="POST"
                                                           action="{{route('admin.question.delete', $question->id)}}">

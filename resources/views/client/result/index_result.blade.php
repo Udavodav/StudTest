@@ -30,7 +30,7 @@
                                                         style="display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 40ch"
                                                         data-target-lang="ru" data-value="{{$test->description}}"
                                                         data-ch="0"
-                                                        data-type="trSpan">{{$test->description == null ? 'Without description' : $test->description}}
+                                                        data-type="trSpan">{{$test->description == null ? 'Без описания' : $test->description}}
                                             </ya-tr-span>
                                         </p>
                                     </div>
