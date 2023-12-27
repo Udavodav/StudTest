@@ -21,11 +21,18 @@ function onChange() {
 }
 
 let current = 1;
-document.getElementById("type_id").onchange = onChange;
+
+const typeEl = document.getElementById("type_id")
+if(typeEl != null)
+    typeEl.onchange = onChange;
+//document.getElementById("type_id").onchange = onChange;
 
 
 window.onload = function () {
-    onChange();
+    if(typeEl != null)
+        onChange();
+
+    //onChange();
 }
 
 function onClickAddOnce(e){

@@ -28,15 +28,19 @@
                                             <ya-tr-span data-index="26-0" data-translated="false" data-source-lang="en"
                                                         style="display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 40ch"
                                                         data-target-lang="ru" data-value="{{$test->description}}"
-                                                        data-ch="0" data-type="trSpan">{{$test->description == null ? 'Без описания' : $test->description}}
+                                                        data-ch="0"
+                                                        data-type="trSpan">{{$test->description == null ? 'Без описания' : $test->description}}
                                             </ya-tr-span>
                                         </p>
                                     </div>
-                                    @if($test->user_id == Auth::user()->id)
-                                        <div class="small-box-footer">
-                                            <a href="{{ route('admin.access.index', $test->id) }}" class="btn btn-success px-5">Поделиться <i class="fas fa-share-alt"></i></a>
-                                        </div>
-                                    @endif
+                                    <div class="small-box-footer">
+                                        @if($test->user_id == Auth::user()->id)
+                                            <a href="{{ route('admin.access.index', $test->id) }}"
+                                               class="btn btn-success px-5">Поделиться <i class="fas fa-share-alt"></i></a>
+                                        @endif
+                                        <a href="{{ route('admin.invite.index', $test->id) }}" class="btn btn-success px-5 my-2">Предоставить для решения <i
+                                                class="fas fa-clipboard-check"></i></a>
+                                    </div>
                                     <a href="{{route('admin.test.show', $test)}}" class="stretched-link"></a>
                                 </div>
                             </div>

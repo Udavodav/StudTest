@@ -30,8 +30,11 @@
                                 </p>
                             </div>
                             <div class="small-box-footer">
-                                <a href="#" class="btn btn-success px-5">Раздать <i class="fas fa-share-alt"></i></a>
+                                <a href="{{ route('admin.invite.index', $test->id) }}" class="btn btn-success px-5 my-2">Предоставить для решения <i
+                                        class="fas fa-clipboard-check"></i></a>
                                 @if($test->user_id == auth()->id())
+                                    <a href="{{ route('admin.access.index', $test->id) }}"
+                                       class="btn btn-success px-5">Поделиться <i class="fas fa-share-alt"></i></a>
                                     <a href="{{route('admin.test.edit', $test)}}" class="btn btn-success px-5">Изменить
                                         <i class="fas fa-edit"></i></a>
                                     <form action="{{route('admin.test.delete', $test)}}" method="POST">
@@ -57,7 +60,8 @@
                 </div>
                 <div class="row py-3">
                     <div class="col-sm-6">
-                        <a href="{{route('admin.question.create', $test->id)}}" class="btn btn-success px-5">Добавить вопрос</a>
+                        <a href="{{route('admin.question.create', $test->id)}}" class="btn btn-success px-5">Добавить
+                            вопрос</a>
                     </div>
                 </div>
                 <div class="col-sm-12">
@@ -84,16 +88,21 @@
                                             <td>{{$question->text}}</td>
                                             <td>{{$question->type->title}}</td>
                                             <td>{{$question->score}}</td>
-{{--                                            <td>--}}
-{{--                                                    <a href="{{route('admin.question.edit', $question->id)}}" class="text-success mx-2"><i class="fas fa-edit"></i></a>--}}
-{{--                                            </td>--}}
+                                            {{--                                            <td>--}}
+                                            {{--                                                    <a href="{{route('admin.question.edit', $question->id)}}" class="text-success mx-2"><i class="fas fa-edit"></i></a>--}}
+                                            {{--                                            </td>--}}
                                             <td>
-                                                <form method="POST" action="{{route('admin.question.delete', $question->id)}}">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="text-danger ml-5 border-0 bg-transparent" onclick="return confirm('Вы уверены?')">
-                                                        <i class="fas fa-trash-alt"></i></button>
-                                                </form>
+                                                @if($test->user_id == auth()->id())
+                                                    <form method="POST"
+                                                          action="{{route('admin.question.delete', $question->id)}}">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit"
+                                                                class="text-danger ml-5 border-0 bg-transparent"
+                                                                onclick="return confirm('Вы уверены?')">
+                                                            <i class="fas fa-trash-alt"></i></button>
+                                                    </form>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach

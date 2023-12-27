@@ -72,7 +72,6 @@
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
                                             <td>
-{{--                                                {{route('admin.access.create', [$user->id, $test->id])}}--}}
                                                 <form method="POST" action="{{route('admin.access.create')}}">
                                                     @csrf
                                                     <input class="d-none" name="user_id" value="{{$user->id}}">

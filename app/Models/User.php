@@ -61,4 +61,8 @@ class User extends Authenticatable
             ->select('tests.*')
             ->distinct();
     }
+
+    public function userGroup(){
+        return $this->hasOne(UserGroup::class);
+    }
 }

@@ -18,7 +18,8 @@
 
                 <div class="row mb-3">
                     <div class="col-lg-3 col-6">
-                        <a href="{{route('admin.test.create')}}" class="btn btn-block btn-success btn-lg">Создать тест</a>
+                        <a href="{{route('admin.test.create')}}" class="btn btn-block btn-success btn-lg">Создать
+                            тест</a>
                     </div>
                 </div>
 
@@ -40,7 +41,11 @@
                                     </p>
                                 </div>
                                 <div class="small-box-footer">
-                                    <a href="{{ route('admin.access.index', $test->id) }}" class="btn btn-success px-5">Поделиться <i class="fas fa-share-alt"></i></a>
+                                        <a href="{{ route('admin.access.index', $test->id) }}"
+                                           class="btn btn-success px-5">Поделиться <i class="fas fa-share-alt"></i></a>
+
+                                        <a href="{{ route('admin.invite.index', $test->id) }}" class="btn btn-success px-5 my-2">Предоставить для решения <i
+                                                class="fas fa-clipboard-check"></i></a>
                                 </div>
                                 <a href="{{route('admin.test.show', $test)}}" class="stretched-link"></a>
                             </div>
