@@ -21,7 +21,7 @@
             <div class="container-fluid">
 
                 <div class="row">
-                    <div class="col-lg-6 col-6">
+                    <div class="col-sm-12 col-lg-10 col-xl-8 col-12">
 
                         <div class="card card-primary">
 

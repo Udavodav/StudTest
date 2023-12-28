@@ -19,9 +19,8 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-
                 <div class="row">
-                    <div class="col-lg-6 col-6">
+                    <div class="col-sm-12 col-lg-10 col-xl-8 col-12">
 
                         <div class="card card-primary">
 
@@ -31,14 +30,14 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Title</label>
-                                        <input type="text" name="Название" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Название" value="{{old('title','') == '' ? old('title') : $test->title}}">
+                                        <input type="text" name="title" class="form-control" id="exampleInputEmail1"
+                                               placeholder="Название" value="{{old('title','') != '' ? old('title') : $test->title}}">
                                     </div>
                                     <div class="form-group">
                                         <label for="points">Количество вопросов для прохождения</label>
                                         <input type="number" name="count_questions" class="form-control" id="points"
                                                placeholder="Количество вопросов"
-                                               value="{{old('count_questions','') == '' ? old('count_questions') : $test->count_questions}}"
+                                               value="{{old('count_questions','') != '' ? old('count_questions') : $test->count_questions}}"
                                                max="1000">
                                         @error('count_questions')
                                         <div class="text-danger">{{ $message }}</div>
@@ -47,7 +46,7 @@
                                     <div class="form-group">
                                         <label>Описание</label>
                                         <textarea class="form-control" rows="3" maxlength="250" name="description"
-                                                  placeholder="Описание">{{old('description','') == '' ? old('description') : $test->description}}</textarea>
+                                                  placeholder="Описание">{{old('description','') != '' ? old('description') : $test->description}}</textarea>
                                     </div>
 
                                 </div>
@@ -56,6 +55,7 @@
                                     <button type="submit" class="btn btn-primary">Изменить</button>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>

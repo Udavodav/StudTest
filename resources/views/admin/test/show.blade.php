@@ -26,7 +26,7 @@
                                 <p>
                                     <ya-tr-span data-index="26-0" data-translated="false" data-source-lang="en"
                                                 data-target-lang="ru" data-value="{{$test->description}}"
-                                                data-ch="0" data-type="trSpan">{{$test->description}}</ya-tr-span>
+                                                data-ch="0" data-type="trSpan">{{$test->description == null ? 'Без описания' : $test->description}}</ya-tr-span>
                                 </p>
                             </div>
                             <div class="small-box-footer">
@@ -85,7 +85,7 @@
                                     @foreach($questions as $question)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$question->text}}</td>
+                                            <td class="text-wrap">{{$question->text}}</td>
                                             <td>{{$question->type->title}}</td>
                                             <td>{{$question->score}}</td>
                                             {{--                                            <td>--}}

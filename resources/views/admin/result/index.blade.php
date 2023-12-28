@@ -23,7 +23,7 @@
                                 <!-- small box -->
                                 <div class="small-box" style="background: #{{dechex(rand(3000000,10000000))}}">
                                     <div class="inner">
-                                        <h3>{{$test->title}}</h3>
+                                        <h3 style="display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{$test->title}}</h3>
                                         <p>
                                             <ya-tr-span data-index="26-0" data-translated="false" data-source-lang="en"
                                                         style="display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 40ch"

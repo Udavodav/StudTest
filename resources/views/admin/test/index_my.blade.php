@@ -26,11 +26,11 @@
                 <div class="row">
 
                     @foreach($tests as $test)
-                        <div class="col-lg-3 col-6">
+                        <div class="col-sm-10 col-lg-6 col-xl-4 col-12">
                             <!-- small box -->
                             <div class="small-box" style="background: #{{dechex(rand(3000000,10000000))}}">
                                 <div class="inner">
-                                    <h3>{{$test->title}}</h3>
+                                    <h3 style="display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{$test->title}}</h3>
                                     <p>
                                         <ya-tr-span data-index="26-0" data-translated="false" data-source-lang="en"
                                                     data-target-lang="ru" data-value="{{$test->description}}"

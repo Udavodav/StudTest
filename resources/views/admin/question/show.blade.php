@@ -21,7 +21,7 @@
                 <div class="form-group mx-3">
                     <h3>{{$question->text}}</h3>
                     @isset($question->path_image)
-                        <div class="w-25">
+                        <div class="w-100">
                             <img src="{{asset('storage/'.$question->path_image)}}"
                                  class="w-50 ms-5">
                         </div>
