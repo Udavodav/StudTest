@@ -19,7 +19,7 @@
 {{--    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
 
     <!-- Scripts -->
-{{--    @vite(['resources/js/app.js'])--}}
+    @vite(['resources/js/app.js'])
 </head>
 <body>
     <div id="app">
