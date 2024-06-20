@@ -9,7 +9,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav me-auto ml-5">
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="{{route('client.test.index')}}" class="nav-link">Доступные тесты</a>
                 </li>
@@ -30,7 +30,7 @@
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            {{ __('Выйти') }}
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

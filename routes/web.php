@@ -19,7 +19,6 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-//импортировал классы
 Auth::routes();
 
 

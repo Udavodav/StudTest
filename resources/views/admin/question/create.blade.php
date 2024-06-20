@@ -2,21 +2,17 @@
 
 @section('content')
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
                         <h1 class="m-0">Создание вопросов для теста: {{$test->title}}</h1>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
 
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
 
@@ -79,7 +75,6 @@
                                     @include('admin.question.answer.order_answer')
                                     @include('admin.question.answer.comparison_answer')
                                 </div>
-                                <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary px-5">Добавить</button>
                                 </div>
@@ -88,10 +83,8 @@
                     </div>
                 </div>
 
-            </div><!-- /.container-fluid -->
+            </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
 
 @endsection

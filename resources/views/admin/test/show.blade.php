@@ -88,9 +88,6 @@
                                             <td class="text-wrap">{{$question->text}}</td>
                                             <td>{{$question->type->title}}</td>
                                             <td>{{$question->score}}</td>
-                                            {{--                                            <td>--}}
-                                            {{--                                                    <a href="{{route('admin.question.edit', $question->id)}}" class="text-success mx-2"><i class="fas fa-edit"></i></a>--}}
-                                            {{--                                            </td>--}}
                                             <td>
                                                 <a href="{{route('admin.question.show', $question->id)}}"
                                                    class="text-success mx-2"><i class="fas fa-eye"></i></a>

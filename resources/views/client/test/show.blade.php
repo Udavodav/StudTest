@@ -38,9 +38,6 @@
                                                 data-type="trSpan">
                                         Количество минут: {{$invite->count_minutes == 0 ? 'Без ограничения по времени' : $invite->count_minutes}}<br/></span>
 
-{{--                                    <span data-index="26-0" data-ch="0"--}}
-{{--                                                data-type="trSpan">--}}
-{{--                                        Доступно до - {{$invite->time_access == null ? 'Пока не закончатся попытки' : $invite->time_access}}<br/></span>--}}
                                 </p>
                             </div>
                         </div>

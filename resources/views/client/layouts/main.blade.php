@@ -15,9 +15,6 @@
     <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
-    <!-- Ionicons -->
-{{--    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
-
     <!-- Scripts -->
     @vite(['resources/js/app.js'])
 </head>
@@ -43,8 +40,6 @@
     <!-- JQVMap -->
     <script src="{{asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
     <script src="{{asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="{{asset('plugins/jquery-knob/jquery.knob.min.js')}}"></script>
     <script>
         $('.sortable-ul').sortable();
     </script>
